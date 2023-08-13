@@ -1,0 +1,20 @@
+{
+  "name": "aidens-jekyll-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tinacms dev -c \"bundle exec jekyll serve\"",
+    "build": "tinacms build && jekyll build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tinacms/cli": "^1.5.27",
+    "tinacms": "^1.5.18"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.0"
+  }
+}
