@@ -13,7 +13,7 @@ export default defineConfig({
   build: {
     publicFolder: "/",
     outputFolder: "admin",
-    basePath: "aidens-jekyll-boilerplate",
+    basePath: "",
   },
   media: {
     tina: {
@@ -33,27 +33,212 @@ export default defineConfig({
             create: false,
             delete: false,
           },
+          filename: {
+            readonly: true,
+            slugify: (values) => {
+              return `${values?.type?.toLowerCase()}-settings`;
+            },
+          },
         },
         templates: [
           {
             name: "global",
             label: "Global Settings",
+            ui: {
+              defaultItem: {
+                type: "Global",
+              },
+            },
             fields: [
               {
-                name: "layout",
+                name: "type",
+                label: "Settings Type",
+                type: "string",
+                options: ["Global"],
+              },
+              {
+                name: "title",
                 label: "Title",
                 type: "string",
+                description: "The title for the site.",
+              },
+              {
+                name: "tagline",
+                label: "Tagline",
+                type: "string",
+                description: "A short tagline for the site.",
+              },
+              {
+                name: "description",
+                label: "Description",
+                type: "string",
+                description: "A meta description of the site.",
+              },
+              {
+                name: "logo",
+                label: "Logo",
+                type: "image",
+                description: "The full logo.",
+              },
+              {
+                name: "icon",
+                label: "Icon",
+                type: "image",
+                description: "A smaller icon.",
+              },
+              {
+                name: "hours",
+                label: "Hours",
+                type: "object",
+                description: "The hours of operation.",
+                list: true,
+                ui: {
+                  itemProps: (item) => {
+                    return {
+                      label: item.day ? item.day : "New Day",
+                    };
+                  },
+                },
+                fields: [
+                  {
+                    name: "day",
+                    label: "Day(s)",
+                    type: "string",
+                    description:
+                      "Format as a three letter abbreviation (Mon, Tue, etc.).",
+                  },
+                  {
+                    name: "hours",
+                    label: "Hours",
+                    type: "string",
+                    description: "Open hours for this day.",
+                  },
+                ],
               },
             ],
           },
           {
             name: "nav",
             label: "Navigation Settings",
+            ui: {
+              defaultItem: {
+                type: "Navigation",
+                footer: {
+                  sections: [
+                    {
+                      title: "Links",
+                    },
+                    {
+                      title: "Social",
+                    },
+                    {
+                      title: "Contact",
+                    },
+                  ],
+                },
+              },
+            },
             fields: [
               {
-                name: "layout",
-                label: "Title",
+                name: "type",
+                label: "Settings Type",
                 type: "string",
+                options: ["Navigation"],
+              },
+              {
+                name: "navbar",
+                label: "Nav Bar",
+                type: "object",
+                description: "Settings for the upper navigation bar.",
+                fields: [
+                  {
+                    name: "buttons",
+                    label: "Buttons",
+                    type: "object",
+                    description:
+                      "Buttons for the nav. There should be less than three.",
+                    list: true,
+                    ui: {
+                      itemProps: (item) => {
+                        return {
+                          label: item.label ? item.label : "New Button",
+                        };
+                      },
+                    },
+                    fields: [
+                      {
+                        name: "label",
+                        label: "Label",
+                        type: "string",
+                        description: "The label for the button.",
+                      },
+                      {
+                        name: "url",
+                        label: "URL",
+                        type: "string",
+                        description: "The url for the button.",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "footer",
+                label: "Footer",
+                type: "object",
+                description: "Settings for the site's footer.",
+                fields: [
+                  {
+                    name: "sections",
+                    label: "Sections",
+                    type: "object",
+                    description:
+                      "Sections for the footer. There should be three.",
+                    list: true,
+                    ui: {
+                      itemProps: (item) => {
+                        return {
+                          label: item.title ? item.title : "New Section",
+                        };
+                      },
+                    },
+                    fields: [
+                      {
+                        name: "title",
+                        label: "Title",
+                        type: "string",
+                      },
+                      {
+                        name: "links",
+                        label: "Links",
+                        type: "object",
+                        description: "Links for this footer section.",
+                        list: true,
+                        ui: {
+                          itemProps: (item) => {
+                            return {
+                              label: item.label ? item.label : "New Link",
+                            };
+                          },
+                        },
+                        fields: [
+                          {
+                            name: "label",
+                            label: "Label",
+                            type: "string",
+                            description: "The label for the link.",
+                          },
+                          {
+                            name: "url",
+                            label: "URL",
+                            type: "string",
+                            description: "The url for the link.",
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
               },
             ],
           },
