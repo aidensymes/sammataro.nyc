@@ -71,16 +71,32 @@
     &__item {
       display: flex;
       align-items: center;
-      button {
+      .button {
         margin-right: $unit-xs;
+      }
+      &:hover {
+        cursor: pointer;
+        .button__strike {
+          opacity: 1;
+          width: 75%;
+          max-width: $unit-xl;
+          min-width: $unit-md;
+        }
       }
     }
   }
 }
 
 .menu {
+  @include transition(height, 0.2s, ease-out);
   &__item {
-    margin-top: $unit-lg;
+    padding-top: $unit-lg;
+    &.hide {
+      display: none;
+    }
+    &.show {
+      display: block;
+    }
     &__top {
       display: flex;
       justify-content: space-between;

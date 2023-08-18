@@ -2,7 +2,8 @@
     <a href="{{ include.url }}">
 {% endif  %}
 
-<button class="button {% if include.style != blank %}{{ include.style }}{% endif %}" {% if include.on-click %} onclick="{{ include.on-click }}"{% endif %}>
+<button class="button {% if include.style != blank %}{{ include.style }}{% endif %}" {% if include.onclick %} onclick="{{ include.onclick }}"{% endif %}{{ include.data }}>
+    <img class="button__strike" src="{% if include.style contains "dark" %}/assets/graphics/sammataro_strike-1-light.svg{% else %}/assets/graphics/sammataro_strike-1.svg{% endif %}">
     <h3>
         {{ include.text }}
     </h3>

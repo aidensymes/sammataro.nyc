@@ -55,31 +55,28 @@
       <div class="col-6-4">
         <div class="menus__select">
           {% for menu in page.menu_section.menus %}
-            <div class="menus__select__item">
+            <div class="menus__select__item" onclick="toggleMenu(this)" data-menu="{{ menu.name }}">
               {% include button.html style = "dark check border" %}
               <h3>{{ menu.name }}</h3>
             </div>
           {% endfor %}
         </div>
 
-        {% for menu in page.menu_section.menus %}
-          <div class="menu" id="menu_{{ menu.name }}">
-            {% for item in menu.item %}
-              <div class="menu__item">
-                <div class="menu__item__top">
-                  <h3>{{ item.name }}</h3>
-                  <h3>{{ item.price }}</h3>
+        <div class="menu" id="menu">
+          {% for menu in page.menu_section.menus %}
+              {% for item in menu.item %}
+                <div class="menu__item" data-menu="{{ menu.name }}">
+                  <div class="menu__item__top">
+                    <h3>{{ item.name }}</h3>
+                    <h3>{{ item.price }}</h3>
+                  </div>
+                  <p class="menu__item__description">{{ item.description }}</p>
                 </div>
-                <p class="menu__item__description">{{ item.description }}</p>
-              </div>
-            {% endfor %}
-            {% capture menu_button %}
-              See all {{ menu.name }}
-            {% endcapture  %}
-            {% include button.html text = menu_button style = "dark border  menu__bottom menu__bottom__open" onclick = "openMenu()" %}
-            {% include button.html text = "Collapse Menu" style = "dark border  menu__bottom menu__bottom__hide" onclick = "closeMenu()" %}
-          </div>
-        {% endfor %}
+              {% endfor %}
+          {% endfor %}
+        </div>
+        {% include button.html text = "See all" style = "dark border  menu__bottom menu__bottom__open" onclick = "openMenu()" %}
+        {% include button.html text = "Collapse Menu" style = "dark border  menu__bottom menu__bottom__hide" onclick = "closeMenu()" %}
       </div>
     </section>
 

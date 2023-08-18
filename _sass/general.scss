@@ -59,6 +59,7 @@ img {
   padding: 0 $unit-sm;
   height: $unit-md;
   border: 0px;
+  position: relative;
   &.light {
     background-color: $white;
     color: $black;
@@ -82,6 +83,30 @@ img {
     width: $unit-sm;
     height: $unit-sm;
     padding: 0;
+    &.selected {
+      .button__strike {
+        opacity: 1;
+        width: 75%;
+        min-width: 40px;
+      }
+    }
+  }
+  &__strike {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(20deg);
+    width: 0%;
+    opacity: 0;
+    @include transition(width, 0.1s, ease-out);
+  }
+  &:hover {
+    .button__strike {
+      opacity: 1;
+      width: 75%;
+      max-width: $unit-xl;
+      min-width: $unit-md;
+    }
   }
 }
 
