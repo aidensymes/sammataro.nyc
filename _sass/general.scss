@@ -14,6 +14,7 @@ html,
 body {
   width: 100%;
   height: 100%;
+  background-color: $white;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -25,22 +26,128 @@ img {
 // Wrapper
 /////////////////////////////////////////////////////
 .wrapper {
-  width: 85%;
-  max-width: 1400px;
+  width: 100%;
+  padding: 0 $unit-lg;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  color: $black;
+  &.dark {
+    background-color: $black;
+    color: $white;
+  }
   &.grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-column-gap: $gutter;
-    grid-row-gap: $gutter;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-column-gap: $unit-sm;
+    grid-row-gap: $unit-sm;
   }
-
   @include break-at("md") {
-    width: 90%;
+    padding: 0 $unit-md;
   }
   @include break-at("sm") {
-    width: 95%;
+    padding: 0 $unit-sm;
   }
+}
+
+// Buttons
+/////////////////////////////////////////////////////
+.button {
+  display: flex;
+  align-items: center;
+  padding: 0 $unit-sm;
+  height: $unit-md;
+  border: 0px;
+  &.light {
+    background-color: $white;
+    color: $black;
+    border-color: $black;
+    &:active {
+      background-color: $light-gray;
+    }
+  }
+  &.dark {
+    background-color: $black;
+    color: $white;
+    border-color: $black;
+    &:active {
+      background-color: $dark-gray;
+    }
+  }
+  &.border {
+    border: 1px solid;
+  }
+  &.check {
+    width: $unit-sm;
+    height: $unit-sm;
+    padding: 0;
+  }
+}
+
+// Top Nav
+/////////////////////////////////////////////////////
+.nav {
+  padding-top: $unit-md;
+  display: flex;
+  align-items: center;
+  .nav__logo {
+    flex-grow: 0;
+    height: $unit-sm;
+    width: auto;
+  }
+  .nav__buttons {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: $unit-xs;
+  }
+}
+
+// Cookie Bar
+/////////////////////////////////////////////////////
+.default__content {
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+#cookieBar {
+  display: none;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  margin-left: 5px;
+  z-index: 999;
+}
+
+.cookieBar__text {
+  border-radius: 5px;
+  background-color: #333333;
+  padding: $unit-sm;
+  font-size: $unit-xs;
+  font-weight: 200;
+  p {
+    font-size: 12px;
+    display: inline;
+    float: left;
+    margin-right: 5px;
+  }
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+#closeBar {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 1;
+  @include pointer;
 }

@@ -41,8 +41,46 @@ order:
   images:
     - /assets/uploads/unnamed (10).jpg
     - /assets/uploads/unnamed (8).jpg
+menu_section:
+  title: Menus
+  limit: 3
+  menus:
+    - name: Pizza
+      item:
+        - name: Classic
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+          price: $26.00
+        - name: Supreme
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+          price: $26.00
+        - name: Red Pie
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+          price: $26.00
+        - name: Vodka Pie
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+          price: $26.00
+    - name: Sides
+    - name: Desserts
+    - name: Drinks
+      item:
+        - name: Drink 1
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+          price: $4.00
+        - name: Drink 2
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+          price: $4.00
 _template: home
 ---
+
+
+
+
+
+
+
+
+
+
 
 
 

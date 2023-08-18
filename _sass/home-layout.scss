@@ -4,58 +4,25 @@
 @import "type";
 @import "units";
 
-// General
-/////////////////////////////////////////////////////
-
 // Header
 /////////////////////////////////////////////////////
+.header {
+  margin-top: $unit-md;
+  h1,
+  h2,
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  h1 {
+    white-space: nowrap;
+  }
+  &__icon {
+    width: $unit-lg;
+    height: auto;
+  }
+}
 
-// Footer
+// About
 /////////////////////////////////////////////////////
-
-// Cookie Bar
-/////////////////////////////////////////////////////
-.default__content {
-  a {
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
-#cookieBar {
-  display: none;
-  position: fixed;
-  bottom: 5px;
-  right: 5px;
-  margin-left: 5px;
-  z-index: 999;
-}
-
-.cookieBar__text {
-  border-radius: 5px;
-  background-color: #333333;
-  padding: $unit-sm;
-  font-size: $unit-xs;
-  font-weight: 200;
-  p {
-    font-size: 12px;
-    display: inline;
-    float: left;
-    margin-right: 5px;
-  }
-  a {
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
-#closeBar {
-  display: inline-block;
-  font-size: 20px;
-  line-height: 1;
-  @include pointer;
-}

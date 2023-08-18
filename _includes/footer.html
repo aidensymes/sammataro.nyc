@@ -1,2 +1,53 @@
-<footer>
+{% assign settings = site.settings.first %}
+
+
+<footer class="wrapper grid dark">
+    <div class="col-3">
+        <img class="footer__icon" src="{{ settings.global.icon_light }}"></img>
+        <p>
+            {{ settings.global.address }}
+        </p>
+    </div>
+    {% if settings.nav.show_email %}
+        <div class="col-9 col-sm-12">
+            <h2>
+                {{ settings.nav.email_label }}
+            </h2>
+            <input placeholder="{{ settings.nav.email_placeholder }}">
+            </input>
+        </div>
+    {% endif %}
+    <div class="col-3">
+        <h2>
+            Hours
+        </h2>
+        {% for entry in settings.global.hours %}
+            <p>
+                {{ entry.day }}
+            </p>
+            <p>
+                {{ entry.hours }}
+            </p>
+        {% endfor %}
+    </div>
+    {% for section in settings.nav.footer_sections %}
+        <div class="col-3">
+            <h2>
+                {{ section.title }}
+            </h2>
+            <ul>
+                {% for button in section.links %}
+                    {% assign text = button.label %}
+                    {% assign url = button.url %}
+                    {% include button.html text=text style = "dark" url=url%}
+                {% endfor  %}
+            </ul>
+        </div>
+    {% endfor %}
+    <p class="col-6">
+        © Sammataro, 2023
+    </p>
+    <p class="col-6">
+        Site Credits    
+    </p>
 </footer>

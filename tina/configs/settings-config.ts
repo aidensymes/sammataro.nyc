@@ -13,28 +13,16 @@ export const settingsConfig: Collection = {
     filename: {
       readonly: true,
       slugify: (values) => {
-        return `${values?.type?.toLowerCase().replace(/ /g, "-")}`;
+        return `settings`;
       },
     },
   },
-  templates: [
+  fields: [
     {
       name: "global",
       label: "Global Settings",
-      ui: {
-        defaultItem: {
-          type: "Global Settings",
-        },
-      },
+      type: "object",
       fields: [
-        {
-          name: "type",
-          label: "Settings Type",
-          type: "string",
-          options: ["Global Settings"],
-          isTitle: true,
-          required: true,
-        },
         {
           name: "title",
           label: "Title",
@@ -66,10 +54,27 @@ export const settingsConfig: Collection = {
           description: "The full logo as an SVG.",
         },
         {
+          name: "logo_light",
+          label: "Light Logo",
+          type: "image",
+          description: "A light version of the logo.",
+        },
+        {
           name: "icon",
           label: "Icon",
           type: "image",
           description: "A smaller icon as an SVG.",
+        },
+        {
+          name: "icon_light",
+          label: "Light Icon",
+          type: "image",
+          description: "A light version smaller of the icon.",
+        },
+        {
+          name: "address",
+          label: "Address",
+          type: "string",
         },
         {
           name: "hours",
@@ -111,10 +116,24 @@ export const settingsConfig: Collection = {
           ],
         },
         {
+          name: "show_pickup",
+          label: "Show pickup button",
+          description:
+            "Should we show the pickup button in the nav bar and footer?",
+          type: "boolean",
+        },
+        {
           name: "pickup",
           label: "Pickup URL",
           description: "Link to order pickup (used across the site).",
           type: "string",
+        },
+        {
+          name: "show_delivery",
+          label: "Show delivery button?",
+          description:
+            "Should we show the delivery button in the nav bar and footer?",
+          type: "boolean",
         },
         {
           name: "delivery",
@@ -127,59 +146,99 @@ export const settingsConfig: Collection = {
     {
       name: "nav",
       label: "Navigation Settings",
+      type: "object",
       ui: {
         defaultItem: {
-          type: "Navigation Settings",
-          footer: {
-            sections: [
-              {
-                title: "Links",
-              },
-              {
-                title: "Social",
-              },
-              {
-                title: "Contact",
-              },
-            ],
-          },
+          footer_sections: [
+            {
+              title: "Links",
+            },
+            {
+              title: "Social",
+            },
+            {
+              title: "Contact",
+            },
+          ],
         },
       },
       fields: [
         {
-          name: "type",
-          label: "Settings Type",
-          type: "string",
-          options: ["Navigation Settings"],
-          isTitle: true,
-          required: true,
-        },
-        {
-          name: "navbar",
-          label: "Nav Bar",
+          name: "buttons",
+          label: "Additional Buttons",
           type: "object",
-          description: "Settings for the upper navigation bar.",
+          description: "Any additional buttons for the upper nav.",
+          list: true,
+          ui: {
+            itemProps: (item) => {
+              return {
+                label: item.label ? item.label : "New Button",
+              };
+            },
+          },
           fields: [
             {
-              name: "pickup",
-              label: "Show pickup button?",
-              type: "boolean",
+              name: "label",
+              label: "Label",
+              type: "string",
+              description: "The label for the button.",
             },
             {
-              name: "delivery",
-              label: "Show delivery button?",
-              type: "boolean",
+              name: "url",
+              label: "URL",
+              type: "string",
+              description: "The url for the button.",
+            },
+          ],
+        },
+        {
+          name: "show_email",
+          label: "Show email sign up",
+          description: "Should we display the email sign up in the footer?",
+          type: "boolean",
+        },
+        {
+          name: "email_label",
+          label: "Email Label",
+          description: "Label for the email signup",
+          type: "string",
+        },
+        {
+          name: "email_placeholder",
+          label: "Email Placeholder Text",
+          description: "Placeholder text for the email signup",
+          type: "string",
+        },
+        {
+          name: "footer_sections",
+          label: "Footer Sections",
+          type: "object",
+          description:
+            "Sections to hold links in the footer. The first section will always contain pickup and delivery buttons (if enabled).",
+          list: true,
+          ui: {
+            itemProps: (item) => {
+              return {
+                label: item.title ? item.title : "New Section",
+              };
+            },
+          },
+          fields: [
+            {
+              name: "title",
+              label: "Title",
+              type: "string",
             },
             {
-              name: "buttons",
-              label: "Additional Buttons",
+              name: "links",
+              label: "Links",
               type: "object",
-              description: "Any additional buttons for the nav.",
+              description: "Links for this footer section.",
               list: true,
               ui: {
                 itemProps: (item) => {
                   return {
-                    label: item.label ? item.label : "New Button",
+                    label: item.label ? item.label : "New Link",
                   };
                 },
               },
@@ -188,85 +247,13 @@ export const settingsConfig: Collection = {
                   name: "label",
                   label: "Label",
                   type: "string",
-                  description: "The label for the button.",
+                  description: "The label for the link.",
                 },
                 {
                   name: "url",
                   label: "URL",
                   type: "string",
-                  description: "The url for the button.",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          name: "footer",
-          label: "Footer",
-          type: "object",
-          description: "Settings for the site's footer.",
-          fields: [
-            {
-              name: "show_email",
-              label: "Show email sign up?",
-              type: "boolean",
-            },
-            {
-              name: "email_label",
-              label: "Email Label",
-              type: "string",
-            },
-            {
-              name: "email_placeholder",
-              label: "Email Placeholder Text",
-              type: "string",
-            },
-            {
-              name: "sections",
-              label: "Sections",
-              type: "object",
-              description: "Sections for the footer. There should be three.",
-              list: true,
-              ui: {
-                itemProps: (item) => {
-                  return {
-                    label: item.title ? item.title : "New Section",
-                  };
-                },
-              },
-              fields: [
-                {
-                  name: "title",
-                  label: "Title",
-                  type: "string",
-                },
-                {
-                  name: "links",
-                  label: "Links",
-                  type: "object",
-                  description: "Links for this footer section.",
-                  list: true,
-                  ui: {
-                    itemProps: (item) => {
-                      return {
-                        label: item.label ? item.label : "New Link",
-                      };
-                    },
-                  },
-                  fields: [
-                    {
-                      name: "label",
-                      label: "Label",
-                      type: "string",
-                      description: "The label for the link.",
-                    },
-                    {
-                      name: "url",
-                      label: "URL",
-                      type: "string",
-                      description: "The url for the link.",
-                    },
-                  ],
+                  description: "The url for the link.",
                 },
               ],
             },

@@ -102,24 +102,14 @@ export const homeConfig: Template = {
       ],
     },
     {
-      name: "menus",
-      label: "Menus",
+      name: "menu_section",
+      label: "Menu Section",
       type: "object",
       fields: [
         {
           name: "title",
           label: "Title",
           type: "string",
-        },
-        {
-          name: "pickup",
-          label: "Show pickup button?",
-          type: "boolean",
-        },
-        {
-          name: "delivery",
-          label: "Show delivery button?",
-          type: "boolean",
         },
         {
           name: "limit",

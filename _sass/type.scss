@@ -1,4 +1,5 @@
 @import "units";
+@import "grid";
 
 // Fonts
 /////////////////////////////////////////////////////
@@ -9,20 +10,52 @@
 // Base Type
 /////////////////////////////////////////////////////
 * {
-  font-family: "Inter", "Helvetica", sans-serif;
+  font-family: "Helvetica", sans-serif;
   font-style: normal;
 }
 
 @mixin h1 {
   font-size: $unit-lg;
+  font-family: "Alte Haas Grotesk", Helvetica, sans-serif;
+  font-size: $unit-xxl;
+  line-height: $unit-xxl;
+  font-weight: 700;
+  letter-spacing: toRem(-4.8);
+  text-transform: uppercase;
+  @include break-at(sm) {
+    font-size: toRem(45);
+    line-height: $unit-lg;
+    &.large {
+      font-size: toRem(65);
+    }
+  }
 }
 
 @mixin h2 {
+  font-family: "Biro Script Plus", cursive;
   font-size: $unit-md;
+  line-height: $unit-md;
+  font-weight: 400;
+  text-transform: uppercase;
+  @include break-at(sm) {
+    font-size: $unit-sm;
+  }
+}
+
+@mixin h3 {
+  font-family: "Alte Haas Grotesk", Helvetica, sans-serif;
+  font-size: toRem(16);
+  line-height: $unit-sm;
+  font-weight: 400;
+  letter-spacing: toRem(0.8);
+  text-transform: uppercase;
 }
 
 @mixin p {
-  font-size: $unit-sm;
+  font-family: "Gascogne Serial", "Times New Roman", Times, serif;
+  font-size: toRem(16);
+  line-height: $unit-sm;
+  font-weight: 300;
 }
 
 h1 {
@@ -31,6 +64,10 @@ h1 {
 
 h2 {
   @include h2();
+}
+
+h3 {
+  @include h3();
 }
 
 p {

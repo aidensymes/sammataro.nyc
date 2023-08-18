@@ -18,6 +18,6 @@ description:
 contact:
 baseurl: "/aidens-jekyll-boilerplate"
 picture:
-  source: "assets/uploads"
+  source: "/"
   output: "assets/generated-images"
   suppress_warnings: true

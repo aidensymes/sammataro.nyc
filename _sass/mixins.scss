@@ -25,7 +25,7 @@
 }
 
 @mixin sticky() {
-  top: $gutter;
+  top: $unit-md;
   position: -webkit-sticky; /* Required for Safari */
   position: sticky;
 }
