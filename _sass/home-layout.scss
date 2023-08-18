@@ -42,7 +42,7 @@
     img {
       position: sticky;
       top: $unit-sm;
-      @include break-at(sm) {
+      @include break-at(md) {
         object-fit: cover;
         min-width: 100%;
         min-height: 100%;

@@ -1,5 +1,6 @@
 @import "units";
 @import "grid";
+@import "mixins";
 
 // Fonts
 /////////////////////////////////////////////////////
@@ -63,9 +64,6 @@
   font-weight: 700;
   letter-spacing: toRem(-4.8);
   text-transform: uppercase;
-  @include break-at(xl) {
-    font-size: toRem(140);
-  }
   @include break-at(lg) {
     font-size: toRem(100);
   }
@@ -73,10 +71,7 @@
     font-size: toRem(65);
   }
   @include break-at(sm) {
-    font-size: toRem(45);
-    &.large {
-      font-size: toRem(65);
-    }
+    font-size: toRem(65);
   }
 }
 
@@ -135,3 +130,7 @@ a {
 .nowrap {
   white-space: nowrap;
 }
+
+// .resize {
+//   @include transition(font-size, 0.1s, linear);
+// }

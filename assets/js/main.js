@@ -1,10 +1,35 @@
 // On content loaded
 ////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
+  setH1();
   initButtons();
   initScramble();
   initWrite();
 });
+
+window.addEventListener("resize", () => {
+  setH1();
+});
+
+// Resize h1
+////////////////////////////////////////////////////////////////////////////////
+function setH1() {
+  const elements = document.getElementsByClassName("resize");
+  const wrapper = document.getElementsByClassName("wrapper")[0];
+  if (wrapper) {
+    for (const element of elements) {
+      if (element) {
+        if (element.tagName === "H1") {
+          const fontSize = wrapper.offsetWidth / 9.1;
+          element.style.fontSize = `${fontSize >= 45 ? fontSize : 45}px`;
+        } else if (element.tagName === "H2") {
+          const fontSize = wrapper.offsetWidth / 40;
+          element.style.fontSize = `${fontSize >= 20 ? fontSize : 20}px`;
+        }
+      }
+    }
+  }
+}
 
 // Button Strike through effect
 ////////////////////////////////////////////////////////////////////////////////
