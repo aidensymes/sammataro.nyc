@@ -1,14 +1,10 @@
 <section class="nav wrapper">
     <div class="nav__logo">
-        <img class="nav__logo__full" src="{{ site.settings.first.global.logo }}"></img>
-        <img class="nav__logo__icon" src="{{ site.settings.first.global.icon }}"></img>
+        <img class="nav__logo" src="{{ site.settings.first.global.logo }}"></img>
+        <!-- <img class="nav__logo__icon" src="{{ site.settings.first.global.icon }}"></img> -->
     </div>
     <div class="nav__buttons">
-        {% if site.settings.first.global.show_pickup %}
-            {% include button.html text = "Pickup" style = "light" url = site.settings.first.global.pickup %}
-        {% endif %}
-        {% if site.settings.first.global.show_delivery %}
-            {% include button.html text = "Delivery" style = "light border" url = site.settings.first.global.delivery%}
-        {% endif %}
+        {% include button.html text = "Menus" style = "light" %}
+        {% include button.html text = "Order" style = "light border"%}
     </div>
 </section>

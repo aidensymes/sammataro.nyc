@@ -138,24 +138,11 @@ img {
   justify-content: space-between;
   @include break-at(sm) {
     padding-top: $unit-sm;
+    gap: $unit-xs;
   }
 }
 .nav__logo {
-  &__full {
-    height: $unit-sm;
-  }
-  &__icon {
-    height: $unit-md;
-    display: none;
-  }
-  @include break-at(sm) {
-    &__full {
-      display: none;
-    }
-    &__icon {
-      display: block;
-    }
-  }
+  height: $unit-sm;
 }
 
 .nav__buttons {
