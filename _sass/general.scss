@@ -33,10 +33,6 @@ img {
   margin-right: auto;
   position: relative;
   color: $black;
-  &.dark {
-    background-color: $black;
-    color: $white;
-  }
   &.grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -49,6 +45,11 @@ img {
   @include break-at("sm") {
     padding: 0 $unit-sm;
   }
+}
+
+.dark {
+  background-color: $black;
+  color: $white;
 }
 
 // Buttons
@@ -145,6 +146,9 @@ img {
 
 // Footer
 /////////////////////////////////////////////////////
+.footer__outer {
+  width: 100%;
+}
 .footer {
   padding: $unit-lg $unit-lg $unit-md $unit-lg;
   h2 {
@@ -247,4 +251,31 @@ img {
   font-size: 20px;
   line-height: 1;
   @include pointer;
+}
+
+// Animations
+/////////////////////////////////////////////////////
+.scramble span {
+  white-space: pre;
+  font: inherit;
+  display: inline-block;
+  z-index: 999;
+  @include transition(transform, 0.5s, ease-in);
+}
+
+.write {
+  flex-direction: column;
+  div {
+    font: inherit;
+    span {
+      opacity: 1;
+      white-space: pre;
+      font: inherit;
+      display: inline-block;
+      @include transition(opacity, 0.05s, ease-out);
+      &.hidden {
+        opacity: 0;
+      }
+    }
+  }
 }

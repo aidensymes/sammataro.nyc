@@ -20,7 +20,7 @@
     white-space: nowrap;
   }
   &__icon img {
-    width: $unit-lg;
+    width: $unit-xl;
     height: auto;
   }
   &__final {
@@ -49,6 +49,10 @@
 
 // Menus
 /////////////////////////////////////////////////////
+.menus__outer {
+  width: 100%;
+}
+
 .menus {
   padding: $unit-xl 0 $unit-xxl 0;
   &__title {
