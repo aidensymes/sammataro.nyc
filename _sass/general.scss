@@ -91,17 +91,89 @@ img {
   padding-top: $unit-md;
   display: flex;
   align-items: center;
-  .nav__logo {
-    flex-grow: 0;
+  justify-content: space-between;
+}
+.nav__logo {
+  img {
     height: $unit-sm;
     width: auto;
   }
-  .nav__buttons {
-    flex-grow: 1;
+  &__icon {
+    display: none;
+  }
+  @include break-at(sm) {
+    &__full {
+      display: none;
+    }
+    &__icon {
+      display: block;
+    }
+  }
+}
+
+.nav__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: $unit-xs;
+}
+
+// Footer
+/////////////////////////////////////////////////////
+.footer {
+  padding: $unit-lg $unit-lg $unit-md $unit-lg;
+  h2 {
+    text-align: left;
+  }
+  &__address {
+    display: flex;
+    gap: $unit-sm;
+  }
+  &__icon {
+    height: $unit-md;
+    width: auto;
+  }
+  &__email {
     display: flex;
     align-items: center;
-    justify-content: right;
-    gap: $unit-xs;
+    gap: $unit-sm;
+    h2 {
+      white-space: nowrap;
+    }
+    input {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 $unit-sm;
+      height: $unit-md;
+      background-color: $black;
+      color: $white;
+      border: 1px solid $white;
+      @include h3;
+      &::placeholder {
+        color: $dark-gray;
+      }
+      &:active {
+        background-color: $dark-gray;
+      }
+    }
+  }
+  &__hours {
+    p {
+      display: inline-block;
+    }
+    &__day {
+      margin-right: $unit-sm;
+    }
+  }
+  &__section {
+    margin: $unit-lg 0 $unit-xxl 0;
+    ul {
+      margin-left: -$unit-sm;
+    }
+  }
+  &__credits {
+    text-align: right;
   }
 }
 

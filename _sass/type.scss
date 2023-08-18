@@ -3,9 +3,50 @@
 
 // Fonts
 /////////////////////////////////////////////////////
-// @font-face {
+@font-face {
+  font-family: "Alte Haas Grotesk";
+  font-weight: 700;
+  src: url("/assets/fonts/alte_haas_grotesk_bold-webfont.eot");
+  src: url("/assets/fonts/alte_haas_grotesk_bold-webfont.eot")
+      format("embedded-opentype"),
+    url("/assets/fonts/alte_haas_grotesk_bold-webfont.woff2") format("woff2"),
+    url("/assets/fonts/alte_haas_grotesk_bold-webfont.woff") format("woff"),
+    url("/assets/fonts/alte_haas_grotesk_bold-webfont.ttf") format("truetype");
+}
 
-// }
+@font-face {
+  font-family: "Alte Haas Grotesk";
+  font-weight: 400;
+  src: url("/assets/fonts/alte_haas_grotesk_regular-webfont.eot");
+  src: url("/assets/fonts/alte_haas_grotesk_regular-webfont.eot")
+      format("embedded-opentype"),
+    url("/assets/fonts/alte_haas_grotesk_regular-webfont.woff2") format("woff2"),
+    url("/assets/fonts/alte_haas_grotesk_regular-webfont.woff") format("woff"),
+    url("/assets/fonts/alte_haas_grotesk_regular-webfont.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Biro Script Plus";
+  font-weight: 400;
+  src: url("/assets/fonts/biro_script_plus_us-webfont.eot");
+  src: url("/assets/fonts/biro_script_plus_us-webfont.eot")
+      format("embedded-opentype"),
+    url("/assets/fonts/biro_script_plus_us-webfont.woff2") format("woff2"),
+    url("/assets/fonts/biro_script_plus_us-webfont.woff") format("woff"),
+    url("/assets/fonts/biro_script_plus_us-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gascogne Serial";
+  font-weight: 300;
+  src: url("/assets/fonts/gascogne_serial-light-webfont.eot");
+  src: url("/assets/fonts/gascogne_serial-light-webfont.eot")
+      format("embedded-opentype"),
+    url("/assets/fonts/gascogne_serial-light-webfont.woff2") format("woff2"),
+    url("/assets/fonts/gascogne_serial-light-webfont.woff") format("woff"),
+    url("/assets/fonts/gascogne_serial-light-webfont.ttf") format("truetype");
+}
 
 // Base Type
 /////////////////////////////////////////////////////
@@ -37,6 +78,8 @@
   line-height: $unit-md;
   font-weight: 400;
   text-transform: uppercase;
+  line-break: strict;
+  text-align: center;
   @include break-at(sm) {
     font-size: $unit-sm;
   }

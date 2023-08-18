@@ -11,12 +11,12 @@ about:
   callout: A guaranteed good time
   images:
     - /assets/uploads/unnamed (6).jpg
-    - /assets/uploads/unnamed (7).jpg
     - /assets/uploads/unnamed (3).jpg
+    - /assets/uploads/unnamed (7).jpg
     - /assets/uploads/IMG-4763.JPEG
 header:
-  hours: 'Tue-Fri: 5-10, Sat: 4-10, Sun: 4-9'
-  address: '1108 E 12th St.  Austin, TX'
+  hours: 'Tue-Fri: 5-10,<br>Sat: 4-10, Sun: 4-9'
+  address: '1108 E 12th St.<br>Austin, TX'
   left_image: /assets/uploads/IMG_4282.png
   right_image: /assets/uploads/IMG-4162.JPEG
 menus:
@@ -71,6 +71,9 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
+
+
 
 
 

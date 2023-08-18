@@ -10,7 +10,8 @@
   margin-top: $unit-md;
   h1,
   h2,
-  div {
+  .header__final,
+  .header__icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,11 +19,94 @@
   h1 {
     white-space: nowrap;
   }
-  &__icon {
+  &__icon img {
     width: $unit-lg;
     height: auto;
+  }
+  &__final {
+    flex-direction: column;
+  }
+  &__image__left img {
+    position: sticky;
+    top: $unit-sm;
   }
 }
 
 // About
 /////////////////////////////////////////////////////
+.about {
+  margin: $unit-sm 0 $unit-xxl 0;
+  &__col {
+    img {
+      margin-bottom: $unit-sm;
+    }
+    &__center img:last-of-type {
+      width: 50%;
+      float: right;
+    }
+  }
+}
+
+// Menus
+/////////////////////////////////////////////////////
+.menus {
+  padding: $unit-xl 0 $unit-xxl 0;
+  &__title {
+    text-align: center;
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $unit-md;
+    border-top: 1px solid $white;
+    padding-top: $unit-sm;
+    margin-top: $unit-md;
+    &__item {
+      display: flex;
+      align-items: center;
+      button {
+        margin-right: $unit-xs;
+      }
+    }
+  }
+}
+
+.menu {
+  &__item {
+    margin-top: $unit-lg;
+    &__top {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__description {
+      margin-top: $unit-xxs;
+    }
+  }
+  &__bottom {
+    margin: $unit-lg auto 0 auto;
+    &__open {
+      display: block;
+    }
+    &__hide {
+      display: none;
+    }
+  }
+}
+
+// Order
+/////////////////////////////////////////////////////
+.order {
+  margin: $unit-xxl 0;
+  &__buttons {
+    margin-top: $unit-md;
+    display: flex;
+    gap: $unit-sm;
+  }
+}

@@ -1,14 +1,7 @@
-{% for page in site.pages %}
-  {% if page.title == 'Home' %}
-    {% assign home = page %}
-    {% break %}
-  {% endif %}
-{% endfor %}
-
 <!DOCTYPE html>
 <html lang="en">
   {% include head.html %}
-  <body class="dark preload">
+  <body>
     {% include cookieBar.html %}
     {% include nav.html %}
 
@@ -17,88 +10,99 @@
       <div class="header__icon col-2" >
         <img src="{{ site.settings.first.global.icon }}"></img>
       </div>
-      <h2 class="col-4">{{ home.header.hours }}</h2>
+      <h2 class="col-4">{{ page.header.hours }}</h2>
       <h1 class="col-8">Pizza Joint</h1>
-      <div class="col-6 row-3">      
-        {% picture "{{ home.header.left_image }}" %}
+      <div class="header__image header__image__left col-6 row-3">      
+        {% picture "{{ page.header.left_image }}" %}
       </div>
       <h1 class="col-2">In</h1>
-      <h2 class="col-4">{{ home.header.address }}</h2>
-      <div class="col-6">
+      <h2 class="col-4">{{ page.header.address }}</h2>
+      <div class="header__final col-6">
         <h1>Austin</h1>
-        <img class="header__underline" src="/assets/"></img>
+        <img class="header__underline" src="/assets/graphics/sammataro_underline.svg"></img>
       </div>
-      <div class="col-6 row-2">      
-        {% picture "{{ home.header.right_image }}" %}
+      <div class="header__image header__image__right col-6 row-2">      
+        {% picture "{{ page.header.right_image }}" %}
       </div>    
-      <h1 class="col-6 large">{{ home.about.title }}</h1>
+      <h1 class="col-6 large">{{ page.about.title }}</h1>
     </header>
 
     <section class="about wrapper grid">
-      <p class="col-4">{{ home.about.blurb }}</p>
-      <h2 class="col-4-1">{{ home.about.callout }}</h2>
-      {% for image in home.about.images %}
-      <div class="{% if forloop.index == 1  %}col-5 row-2{% elsif forloop.index == 2 %} col-3 row-2{% elsif forloop.index == 3 %} col-3-7{% elsif forloop.index == 4 %} col-3{% endif%}">      
-          {% picture "{{ image }}" %}
-        </div>
-      {% endfor %}
+      <p class="col-4">{{ page.about.blurb }}</p>
+      <div class="about__col about__col__center col-5 row-3">      
+        {% picture "{{ page.about.images[0] }}" %}
+        {% picture "{{ page.about.images[2] }}" %}
+      </div>
+      <div class="about__col about__col__right col-3 row-3">      
+        {% picture "{{ page.about.images[1] }}" %}
+        {% picture "{{ page.about.images[3] }}" %}
+      </div>
+      <h2 class="col-4-1">{{ page.about.callout }}</h2>
     </section>
 
     <section class="menus wrapper grid dark">
       {% if site.settings.first.global.pickup %}
-        <div class="col-3">
+        <div class="menus__button col-3 col-sm-12">
           {% include button.html text = "Order Pickup" style = "dark" url = site.settings.first.global.pickup %}
         </div>
       {% endif %}
-      <h1 class="col-6-4">{{ home.menu_section.title }}</h1>
+      <h1 class="menus__title large col-6-4 col-sm-12">{{ page.menu_section.title }}</h1>
       {% if site.settings.first.global.delivery %}
-      <div class="col-3">
-        {% include button.html text = "Order Delivery" style = "dark" url = site.settings.first.global.delivery %}
-      </div>
+        <div class="menus__button col-3 col-sm-12">
+          {% include button.html text = "Order Delivery" style = "dark" url = site.settings.first.global.delivery %}
+        </div>
+      {% endif %}
       <div class="col-6-4">
-        {% for menu in home.menu_section.menus %}
-          {% include button.html text = "" style = "dark check border" %}
-          <h3>{{ menu.name }}</h3>
-        {% endfor %}
+        <div class="menus__select">
+          {% for menu in page.menu_section.menus %}
+            <div class="menus__select__item">
+              {% include button.html style = "dark check border" %}
+              <h3>{{ menu.name }}</h3>
+            </div>
+          {% endfor %}
+        </div>
 
-        {% for menu in home.menu_section.menus %}
-          <div class="menu">
+        {% for menu in page.menu_section.menus %}
+          <div class="menu" id="menu_{{ menu.name }}">
             {% for item in menu.item %}
               <div class="menu__item">
-                <h3>{{ item.name }}</h3>
-                <h3>{{ item.price }}</h3>
-                <p>{{ item.description }}</p>
+                <div class="menu__item__top">
+                  <h3>{{ item.name }}</h3>
+                  <h3>{{ item.price }}</h3>
+                </div>
+                <p class="menu__item__description">{{ item.description }}</p>
               </div>
             {% endfor %}
             {% capture menu_button %}
-              See all {{ menu.name }}s
+              See all {{ menu.name }}
             {% endcapture  %}
-            {% include button.html text = menu_button style = "dark border" url = site.settings.first.global.delivery %}
+            {% include button.html text = menu_button style = "dark border  menu__bottom menu__bottom__open" onclick = "openMenu()" %}
+            {% include button.html text = "Collapse Menu" style = "dark border  menu__bottom menu__bottom__hide" onclick = "closeMenu()" %}
           </div>
         {% endfor %}
-
       </div>
-    {% endif %}
     </section>
 
     <section class="order wrapper grid">
-      <h1 class="col-8">{{ home.order.title }}</h1>
+      <h1 class="col-8">{{ page.order.title }}</h1>
       <div class="col-4 row-3">      
-        {% picture "{{ home.order.images[0] }}" %}
+        {% picture "{{ page.order.images[0] }}" %}
       </div>
       <div class="col-4">
-        <p>{{ home.order.blurb }}</p>
-        {% if site.settings.first.global.show_pickup %}
-          {% include button.html text = "Order Pickup" style = "light border" url = site.settings.first.global.pickup %}
-        {% endif %}
-        {% if site.settings.first.global.show_delivery %}
-          {% include button.html text = "Order Delivery" style = "light border" url = site.settings.first.global.delivery%}
-        {% endif %}
+        <p>{{ page.order.blurb }}</p>
+        <div class="order__buttons">
+          {% if site.settings.first.global.show_pickup %}
+            {% include button.html text = "Order Pickup" style = "light border" url = site.settings.first.global.pickup %}
+          {% endif %}
+          {% if site.settings.first.global.show_delivery %}
+            {% include button.html text = "Order Delivery" style = "light border" url = site.settings.first.global.delivery%}
+          {% endif %}
+        </div>
       </div>
       <div class="col-4 row-2">      
-        {% picture "{{ home.order.images[1] }}" %}
+        {% picture "{{ page.order.images[1] }}" %}
       </div>
-      <h2 class="col-4-1">{{ home.order.callout }}</h2>
+      <h2 class="col-4-1">{{ page.order.callout }}</h2>
     </section>
 
     {% include footer.html %}

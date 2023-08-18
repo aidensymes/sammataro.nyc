@@ -10,7 +10,7 @@ global:
   logo_light: /assets/uploads/sammataro_logo_light.svg
   icon: /assets/uploads/sammataro_icon.svg
   icon_light: /assets/uploads/sammataro_icon_light.svg
-  address: '1108 E 12th St.  Austin, TX 78702'
+  address: '1108 E 12th St.<br>Austin, TX 78702'
   hours:
     - day: Tue-Fri
       hours: '5:00-10:00'
@@ -27,7 +27,7 @@ global:
     https://www.ubereats.com/store/sammataro-east/kvr4sq1vUSa0XPWj-J3rhg?diningMode=DELIVERY
 nav:
   show_email: true
-  email_label: Get Updates
+  email_label: 'Get Updates:'
   email_placeholder: Enter your email
   footer_sections:
     - title: Links
@@ -46,4 +46,8 @@ nav:
           url: 'mailto:contact@sammataro.nyc'
         - label: (123) 456-7890
 ---
+
+
+
+
 
