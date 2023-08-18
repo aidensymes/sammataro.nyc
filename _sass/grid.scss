@@ -1,8 +1,9 @@
 // Breakpoints
 /////////////////////////////////////////////////////
 $breakpoints: (
-  "lg": 1440px,
-  "md": 925px,
+  "xl": 1400px,
+  "lg": 1100px,
+  "md": 850px,
   "sm": 550px,
 ) !default;
 
@@ -53,12 +54,36 @@ $column-count: 12;
   }
 }
 
-.row-1 {
-  grid-row: span 1;
+$row-count: 6;
+
+@for $i from 1 through $row-count {
+  .row-#{$i} {
+    grid-row: span #{$i};
+  }
 }
-.row-2 {
-  grid-row: span 2;
+
+@for $i from 1 through $row-count {
+  @for $j from 1 through $row-count {
+    .row-#{$i}-#{$j} {
+      grid-row: #{$j} / span #{$i};
+    }
+  }
 }
-.row-3 {
-  grid-row: span 3;
+
+@each $breakpoint in map-keys($breakpoints) {
+  @include break-at($breakpoint) {
+    @for $i from 1 through $row-count {
+      @for $j from 1 through $row-count {
+        .row-#{$breakpoint}-#{$i}-#{$j} {
+          grid-row: #{$j} / span #{$i};
+        }
+      }
+    }
+
+    @for $i from 1 through $row-count {
+      .row-#{$breakpoint}-#{$i} {
+        grid-row: span #{$i};
+      }
+    }
+  }
 }

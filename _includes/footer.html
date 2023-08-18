@@ -1,15 +1,15 @@
 {% assign settings = site.settings.first %}
 
 <footer class="footer__outer dark">
-    <div class="footer wrapper grid dark">
-        <div class="footer__address col-3">
+    <div class="footer wrapper inner grid dark">
+        <div class="footer__address col-3 col-md-12">
             <img class="footer__icon" src="{{ settings.global.icon_light }}"></img>
             <p>
                 {{ settings.global.address }}
             </p>
         </div>
         {% if settings.nav.show_email %}
-            <div class="footer__email col-9 col-sm-12">
+            <div class="footer__email col-9 col-md-12">
                 <h2>
                     {{ settings.nav.email_label }}
                 </h2>
@@ -17,7 +17,7 @@
                 </input>
             </div>
         {% endif %}
-        <div class="footer__section footer__hours col-3-1">
+        <div class="footer__section footer__hours col-3-1 col-md-12">
             <h2>
                 Hours
             </h2>
@@ -33,7 +33,7 @@
             </p>
         </div>
         {% for section in settings.nav.footer_sections %}
-            <div class="footer__section col-3">
+            <div class="footer__section col-3 col-md-12">
                 <h2>
                     {{ section.title }}
                 </h2>

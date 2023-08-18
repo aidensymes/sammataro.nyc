@@ -8,6 +8,9 @@
 /////////////////////////////////////////////////////
 .header {
   margin-top: $unit-md;
+  @include break-at(sm) {
+    margin-top: $unit-sm;
+  }
   h1,
   h2,
   .header__final,
@@ -16,19 +19,35 @@
     align-items: center;
     justify-content: center;
   }
-  h1 {
-    white-space: nowrap;
+  h2 {
+    @include break-at(sm) {
+      letter-spacing: -2px;
+    }
   }
   &__icon img {
     width: $unit-xl;
     height: auto;
+    @include break-at(md) {
+      width: $unit-lg;
+    }
+    @include break-at(sm) {
+      width: $unit-md;
+    }
   }
   &__final {
     flex-direction: column;
   }
-  &__image__left img {
-    position: sticky;
-    top: $unit-sm;
+  &__image__left {
+    position: relative;
+    img {
+      position: sticky;
+      top: $unit-sm;
+      @include break-at(sm) {
+        object-fit: cover;
+        min-width: 100%;
+        min-height: 100%;
+      }
+    }
   }
 }
 
@@ -36,13 +55,30 @@
 /////////////////////////////////////////////////////
 .about {
   margin: $unit-sm 0 $unit-xxl 0;
+  &__title {
+    @include break-at(sm) {
+      justify-content: unset !important;
+    }
+  }
+  &__callout {
+    min-height: $unit-xl;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   &__col {
     img {
       margin-bottom: $unit-sm;
+      @include break-at(sm) {
+        margin-bottom: $unit-xs;
+      }
     }
     &__center img:last-of-type {
       width: 50%;
       float: right;
+      @include break-at(sm) {
+        width: 100%;
+      }
     }
   }
 }
@@ -54,7 +90,8 @@
 }
 
 .menus {
-  padding: $unit-xl 0 $unit-xxl 0;
+  padding-top: $unit-xl;
+  padding-bottom: $unit-xxl;
   &__title {
     text-align: center;
   }
@@ -68,7 +105,8 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: $unit-md;
+    column-gap: $unit-md;
+    row-gap: $unit-sm;
     border-top: 1px solid $white;
     padding-top: $unit-sm;
     margin-top: $unit-md;
@@ -128,5 +166,11 @@
     margin-top: $unit-md;
     display: flex;
     gap: $unit-sm;
+    @include break-at("sm") {
+      display: block;
+      .button:first-of-type {
+        margin-bottom: $unit-xs;
+      }
+    }
   }
 }

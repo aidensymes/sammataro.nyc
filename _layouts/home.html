@@ -6,13 +6,14 @@
     {% include nav.html %}
 
     <header class="header wrapper grid">
-      <h1 class="col-10 scramble">A New York</h1>
+      <h1 class="nowrap col-10 scramble">A New York</h1>
       <div class="header__icon col-2" >
         <img src="{{ site.settings.first.global.icon }}"></img>
       </div>
-      <h2 class="col-4 write">{{ page.header.hours }}</h2>
-      <h1 class="col-8 scramble">Pizza Joint</h1>
-      <div class="header__image header__image__left col-6 row-3">      
+      <h2 class="write col-4 col-sm-7">{{ page.header.hours }}</h2>
+      <h1 class="scramble col-4 col-sm-5">Pizza</h1>
+      <h1 class="scramble col-4 col-sm-6-7">Joint</h1>
+      <div class="header__image header__image__left col-6 row-3 row-sm-3-3">      
         {% picture "{{ page.header.left_image }}" %}
       </div>
       <h1 class="col-2 scramble">In</h1>
@@ -21,27 +22,29 @@
         <h1 class="scramble">Austin</h1>
         <img class="header__underline" src="/assets/graphics/sammataro_underline.svg"></img>
       </div>
-      <div class="header__image header__image__right col-6 row-2">      
+      <div class="header__image header__image__right col-6 row-2 col-sm-12">      
         {% picture "{{ page.header.right_image }}" %}
       </div>    
-      <h1 class="col-6 large scramble">{{ page.about.title }}</h1>
+      <h1 class="about__title col-6 col-sm-12 large scramble">{{ page.about.title }}</h1>
     </header>
 
     <section class="about wrapper grid">
-      <p class="col-4">{{ page.about.blurb }}</p>
-      <div class="about__col about__col__center col-5 row-3">      
+      <p class="col-4 col-sm-12">{{ page.about.blurb }}</p>
+      <div class="about__col about__col__center col-5 row-3 col-sm-6 row-1">      
         {% picture "{{ page.about.images[0] }}" %}
         {% picture "{{ page.about.images[2] }}" %}
       </div>
-      <div class="about__col about__col__right col-3 row-3">      
+      <div class="about__col about__col__right col-3 row-3 col-sm-6 row-2">      
         {% picture "{{ page.about.images[1] }}" %}
         {% picture "{{ page.about.images[3] }}" %}
       </div>
-      <h2 class="col-4-1">{{ page.about.callout }}</h2>
+      <div class="about__callout col-4-1 col-sm-6 row-sm-1-2">
+        <h2>{{ page.about.callout }}</h2>
+      </div>
     </section>
 
     <section class="menus__outer dark">
-      <div class="menus wrapper grid dark">
+      <div class="menus wrapper inner grid dark">
         {% if site.settings.first.global.pickup %}
           <div class="menus__button col-3 col-sm-12">
             {% include button.html text = "Order Pickup" style = "dark" url = site.settings.first.global.pickup %}
@@ -53,7 +56,7 @@
             {% include button.html text = "Order Delivery" style = "dark" url = site.settings.first.global.delivery %}
           </div>
         {% endif %}
-        <div class="col-6-4">
+        <div class="col-6-4 col-md-10-3 col-sm-12">
           <div class="menus__select">
             {% for menu in page.menu_section.menus %}
               <div class="menus__select__item" onclick="toggleMenu(this)" data-menu="{{ menu.name }}">
@@ -83,11 +86,11 @@
     </section>
 
     <section class="order wrapper grid">
-      <h1 class="col-8 scramble">{{ page.order.title }}</h1>
-      <div class="col-4 row-3">      
+      <h1 class="col-8 col-sm-12 scramble">{{ page.order.title }}</h1>
+      <div class="col-4 row-3 col-sm-6-7 row-sm-2">      
         {% picture "{{ page.order.images[0] }}" %}
       </div>
-      <div class="col-4">
+      <div class="col-4 col-sm-12 row-sm-1-2">
         <p>{{ page.order.blurb }}</p>
         <div class="order__buttons">
           {% if site.settings.first.global.show_pickup %}
@@ -98,10 +101,10 @@
           {% endif %}
         </div>
       </div>
-      <div class="col-4 row-2">      
+      <div class="col-4 row-2 col-sm-6">      
         {% picture "{{ page.order.images[1] }}" %}
       </div>
-      <h2 class="col-4-1">{{ page.order.callout }}</h2>
+      <h2 class="col-4-1 col-sm-6">{{ page.order.callout }}</h2>
     </section>
 
     {% include footer.html %}

@@ -59,13 +59,21 @@
   font-size: $unit-lg;
   font-family: "Alte Haas Grotesk", Helvetica, sans-serif;
   font-size: $unit-xxl;
-  line-height: $unit-xxl;
+  line-height: 100%;
   font-weight: 700;
   letter-spacing: toRem(-4.8);
   text-transform: uppercase;
+  @include break-at(xl) {
+    font-size: toRem(140);
+  }
+  @include break-at(lg) {
+    font-size: toRem(100);
+  }
+  @include break-at(md) {
+    font-size: toRem(65);
+  }
   @include break-at(sm) {
     font-size: toRem(45);
-    line-height: $unit-lg;
     &.large {
       font-size: toRem(65);
     }
@@ -75,7 +83,7 @@
 @mixin h2 {
   font-family: "Biro Script Plus", cursive;
   font-size: $unit-md;
-  line-height: $unit-md;
+  line-height: 100%;
   font-weight: 400;
   text-transform: uppercase;
   line-break: strict;
@@ -122,4 +130,8 @@ a {
   color: inherit;
   font-size: inherit;
   line-height: inherit;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
