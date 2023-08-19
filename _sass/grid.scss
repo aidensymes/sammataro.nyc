@@ -4,7 +4,7 @@ $breakpoints: (
   "xl": 1400px,
   "lg": 1100px,
   "md": 850px,
-  "sm": 550px,
+  "sm": 570px,
 ) !default;
 
 @mixin break-at($breakpoint) {

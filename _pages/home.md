@@ -8,7 +8,7 @@ about:
     A unique and vibrant New York style pizza joint that quickly became a
     favorite for anyone who's ever tried (and, as a result, now misses dearly)
     New York pizza.
-  callout: A guaranteed good time
+  callout: A guaranteed<br>good time
   images:
     - /assets/uploads/unnamed (6).jpg
     - /assets/uploads/unnamed (3).jpg
@@ -37,7 +37,7 @@ order:
     diam.
   pickup: true
   delivery: true
-  callout: Get Aammataro Anywhere
+  callout: Get Sammataro<br>anywhere
   images:
     - /assets/uploads/unnamed (10).jpg
     - /assets/uploads/unnamed (8).jpg
@@ -71,6 +71,12 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
+
+
+
+
+
 
 
 

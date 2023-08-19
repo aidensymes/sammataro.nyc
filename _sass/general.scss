@@ -187,10 +187,14 @@ img {
       color: $white;
       border: 1px solid $white;
       @include h3;
+      @include transition(all, 0.1s, ease-out);
       &::placeholder {
-        color: $dark-gray;
+        color: #696969;
       }
-      &:active {
+      &:hover {
+        background-color: $dark-gray;
+      }
+      &:focus {
         background-color: $dark-gray;
       }
     }

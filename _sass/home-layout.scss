@@ -54,7 +54,7 @@
 // About
 /////////////////////////////////////////////////////
 .about {
-  margin: $unit-sm 0 $unit-xxl 0;
+  margin: $unit-sm auto $unit-xxl auto;
   &__title {
     justify-content: unset !important;
   }
@@ -63,6 +63,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: $unit-xxl;
+    @include break-at(md) {
+      margin-top: $unit-md;
+    }
+    @include break-at(sm) {
+      margin-top: 0;
+    }
   }
   &__col {
     img {
@@ -163,12 +170,8 @@
   &__buttons {
     margin-top: $unit-md;
     display: flex;
-    gap: $unit-sm;
-    @include break-at("sm") {
-      display: block;
-      .button:first-of-type {
-        margin-bottom: $unit-xs;
-      }
-    }
+    flex-wrap: wrap;
+    column-gap: $unit-sm;
+    row-gap: $unit-xs;
   }
 }

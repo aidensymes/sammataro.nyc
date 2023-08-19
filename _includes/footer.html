@@ -38,10 +38,18 @@
                     {{ section.title }}
                 </h2>
                 <ul>
+                    {% if forloop.first %}
+                        {% if settings.global.show_pickup %}
+                            {% include button.html text="Order Pickup" style = "dark" url = settings.global.pickup external=true%}
+                        {% endif %}
+                        {% if settings.global.show_delivery %}
+                            {% include button.html text="Order Delivery" style = "dark" url = settings.global.delivery external=true%}
+                        {% endif %}
+                    {% endif %}
                     {% for button in section.links %}
                         {% assign text = button.label %}
                         {% assign url = button.url %}
-                        {% include button.html text=text style = "dark" url=url%}
+                        {% include button.html text=text style = "dark" url=url external=true%}
                     {% endfor  %}
                 </ul>
             </div>

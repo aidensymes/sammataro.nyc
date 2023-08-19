@@ -39,24 +39,24 @@
         {% picture "{{ page.about.images[3] }}" %}
       </div>
       <div class="about__callout col-4-1 col-sm-6 row-sm-1-2">
-        <h2>{{ page.about.callout }}</h2>
+        <h2 class="write resize">{{ page.about.callout }}</h2>
       </div>
     </section>
 
     <section class="menus__outer dark">
       <div class="menus wrapper inner grid dark">
-        {% if site.settings.first.global.pickup %}
+        {% if site.settings.first.global.show_pickup %}
           <div class="menus__button col-3 col-sm-12">
-            {% include button.html text = "Order Pickup" style = "dark" url = site.settings.first.global.pickup %}
+            {% include button.html text = "Order Pickup" style = "dark" url = site.settings.first.global.pickup external=true %}
           </div>
         {% endif %}
         <h1 class="menus__title scramble col-6-4 col-sm-12">{{ page.menu_section.title }}</h1>
-        {% if site.settings.first.global.delivery %}
+        {% if site.settings.first.global.show_delivery %}
           <div class="menus__button col-3 col-sm-12">
-            {% include button.html text = "Order Delivery" style = "dark" url = site.settings.first.global.delivery %}
+            {% include button.html text = "Order Delivery" style = "dark" url = site.settings.first.global.delivery external=true %}
           </div>
         {% endif %}
-        <div class="col-6-4 col-md-10-3 col-sm-12">
+        <div class="col-6-4 col-md-10-2 col-sm-12">
           <div class="menus__select">
             {% for menu in page.menu_section.menus %}
               <div class="menus__select__item" onclick="toggleMenu(this)" data-menu="{{ menu.name }}">
@@ -104,7 +104,7 @@
       <div class="col-4 row-2 col-sm-6">      
         {% picture "{{ page.order.images[1] }}" %}
       </div>
-      <h2 class="col-4-1 col-sm-6">{{ page.order.callout }}</h2>
+      <h2 class="write resize col-4-1 col-sm-6">{{ page.order.callout }}</h2>
     </section>
 
     {% include footer.html %}
