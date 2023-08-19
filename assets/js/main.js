@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("load", () => {
+  document.getElementById("loader").classList.add("hide");
   triggerAllAnimations();
 });
 

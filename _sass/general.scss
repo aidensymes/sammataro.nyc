@@ -279,6 +279,22 @@ img {
   @include pointer;
 }
 
+// Loader
+/////////////////////////////////////////////////////
+#loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: $black;
+  @include transition(height, 0.3s, cubic-bezier(0.9, 0.1, 0.1, 0.9));
+  &.hide {
+    height: 0;
+  }
+}
+
 // Animations
 /////////////////////////////////////////////////////
 .pop {
@@ -290,7 +306,7 @@ img {
   font: inherit;
   display: inline-block;
   z-index: 999;
-  @include transition(transform, 0.5s, cubic-bezier(0.9, 0.1, 0.1, 0.9));
+  @include transition(transform, 0.6s, cubic-bezier(0.9, 0.1, 0.1, 0.9));
   transition-delay: 0;
 }
 
