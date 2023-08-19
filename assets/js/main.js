@@ -30,15 +30,17 @@ function handleScroll() {
 }
 
 function triggerAllAnimations() {
-  if (scrambleElements.length > 0) triggerAnimation(scrambleElements, scramble);
-  if (writeElements.length > 0) triggerAnimation(writeElements, write);
+  if (scrambleElements.length > 0)
+    triggerAnimation(scrambleElements, scramble, setupScramble);
+  if (writeElements.length > 0)
+    triggerAnimation(writeElements, write, setupWrite);
 }
 
 window.onscroll = () => {
   debounce(handleScroll, 10);
 };
 
-// Resize h1
+// Resize h1 & h2
 ////////////////////////////////////////////////////////////////////////////////
 function setH1() {
   const elements = document.getElementsByClassName("resize");
@@ -101,7 +103,7 @@ function initButtons() {
 // Animation Utilties
 ////////////////////////////////////////////////////////////////////////////////
 function checkView(element) {
-  var elementTop = element?.getBoundingClientRect().top,
+  const elementTop = element?.getBoundingClientRect().top,
     windowHeight = window.innerHeight;
 
   if (elementTop < windowHeight) {
@@ -110,23 +112,33 @@ function checkView(element) {
   return false;
 }
 
-function triggerAnimation(elements, animation) {
-  for (let i = 0; i < elements.length; i++) {
-    if (
-      !elements[i].classList.contains("no-animation") &&
-      checkView(elements[i])
+function checkForReset(element) {
+  const elementTop = element?.getBoundingClientRect().top,
+    windowHeight = window.innerHeight;
+
+  if (elementTop > windowHeight) {
+    return true;
+  }
+  return false;
+}
+
+function triggerAnimation(elements, animation, reset) {
+  for (const element of elements) {
+    if (!element.classList.contains("no-transition") && checkView(element)) {
+      animation(element);
+      element.classList.add("no-transition");
+    } else if (
+      element.classList.contains("no-transition") &&
+      checkForReset(element)
     ) {
-      animation(elements[i]);
-      elements[i].classList.add("no-animation");
+      reset(element, true);
+      element.classList.remove("no-transition");
     }
   }
 }
 
-// Scramble animations
+//  Text Utilities
 ////////////////////////////////////////////////////////////////////////////////
-
-var scrambleElements; // Get animation elements
-
 function splitWordIntoLetters(word) {
   word.innerHTML = word.innerText.replace(/./g, "<span>$&</span>");
 }
@@ -143,13 +155,22 @@ function getRandom(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function setupScramble(line) {
-  splitLineIntoWords(line);
+// Scramble animations
+////////////////////////////////////////////////////////////////////////////////
+
+var scrambleElements; // Get animation elements
+
+function setupScramble(line, reset) {
+  if (!reset) {
+    splitLineIntoWords(line);
+  }
   for (let i = 0; i < line.children.length; i++) {
     const word = line.children.item(i);
     if (word) {
       word.style.transform = `rotate(${getRandom(3, -3)}deg`;
-      splitWordIntoLetters(word);
+      if (!reset) {
+        splitWordIntoLetters(word);
+      }
       for (let i = 0; i < word.children.length; i++) {
         const letter = word.children.item(i);
         if (letter) {
@@ -193,12 +214,16 @@ function initScramble() {
 ////////////////////////////////////////////////////////////////////////////////
 var writeElements;
 
-function setupWrite(text) {
-  splitTextIntoLines(text);
+function setupWrite(text, reset) {
+  if (!reset) {
+    splitTextIntoLines(text);
+  }
   for (let i = 0; i < text.children.length; i++) {
     const line = text.children.item(i);
     if (line) {
-      splitWordIntoLetters(line);
+      if (!reset) {
+        splitWordIntoLetters(line);
+      }
       for (let i = 0; i < line.children.length; i++) {
         const letter = line.children.item(i);
         if (letter) {
