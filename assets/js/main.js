@@ -2,14 +2,41 @@
 ////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
   setH1();
-  initButtons();
   initScramble();
   initWrite();
+  initButtons();
+  triggerAllAnimations();
 });
 
 window.addEventListener("resize", () => {
   setH1();
 });
+
+// On scroll
+////////////////////////////////////////////////////////////////////////////////
+var lastScrollTop = 0;
+
+function debounce(method, delay) {
+  clearTimeout(method._tId);
+  method._tId = setTimeout(function () {
+    method();
+  }, delay);
+}
+
+function handleScroll() {
+  var scrollTop = this.scrollTop;
+  triggerAllAnimations();
+  lastScrollTop = scrollTop;
+}
+
+function triggerAllAnimations() {
+  if (scrambleElements.length > 0) triggerAnimation(scrambleElements, scramble);
+  if (writeElements.length > 0) triggerAnimation(writeElements, write);
+}
+
+window.onscroll = () => {
+  debounce(handleScroll, 10);
+};
 
 // Resize h1
 ////////////////////////////////////////////////////////////////////////////////
@@ -71,8 +98,35 @@ function initButtons() {
   }
 }
 
-// Text animations
+// Animation Utilties
 ////////////////////////////////////////////////////////////////////////////////
+function checkView(element) {
+  var elementTop = element?.getBoundingClientRect().top,
+    windowHeight = window.innerHeight;
+
+  if (elementTop < windowHeight) {
+    return true;
+  }
+  return false;
+}
+
+function triggerAnimation(elements, animation) {
+  for (let i = 0; i < elements.length; i++) {
+    if (
+      !elements[i].classList.contains("no-animation") &&
+      checkView(elements[i])
+    ) {
+      animation(elements[i]);
+      elements[i].classList.add("no-animation");
+    }
+  }
+}
+
+// Scramble animations
+////////////////////////////////////////////////////////////////////////////////
+
+var scrambleElements; // Get animation elements
+
 function splitWordIntoLetters(word) {
   word.innerHTML = word.innerText.replace(/./g, "<span>$&</span>");
 }
@@ -89,28 +143,16 @@ function getRandom(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function randomLetterLocation(letter) {
-  letter.style.transform = `translateX(${getRandom(
-    50,
-    -50
-  )}px) translateY(${getRandom(0, 100)}px) rotate(${getRandom(20, -20)}deg`;
-}
-
-function scramble(line) {
+function setupScramble(line) {
   splitLineIntoWords(line);
-  for (let i = 0; i <= line.children.length; i++) {
+  for (let i = 0; i < line.children.length; i++) {
     const word = line.children.item(i);
     if (word) {
       word.style.transform = `rotate(${getRandom(3, -3)}deg`;
       splitWordIntoLetters(word);
-      for (let i = 0; i <= word.children.length; i++) {
+      for (let i = 0; i < word.children.length; i++) {
         const letter = word.children.item(i);
         if (letter) {
-          letter.style.transitionTimingFunction = `cubic-bezier(${getRandom(
-            1,
-            0.8
-          )},${getRandom(0.2, 0)},${getRandom(0.2, 0)},${getRandom(1, 0.8)})`;
-
           letter.style.transform = `translateX(${getRandom(
             10,
             -10
@@ -118,29 +160,20 @@ function scramble(line) {
             40,
             -40
           )}deg`;
-
-          setTimeout(() => {
-            letter.style.transform = `rotate(${getRandom(4, -4)}deg`;
-          }, 10);
         }
       }
     }
   }
 }
 
-function write(text) {
-  splitTextIntoLines(text);
-  for (let i = 0; i <= text.children.length; i++) {
-    const line = text.children.item(i);
-    if (line) {
-      splitWordIntoLetters(line);
-      for (let i = 0; i <= line.children.length; i++) {
-        const letter = line.children.item(i);
+function scramble(element) {
+  for (let i = 0; i < element.children.length; i++) {
+    const word = element.children.item(i);
+    if (word) {
+      for (let i = 0; i < word.children.length; i++) {
+        const letter = word.children.item(i);
         if (letter) {
-          letter.classList.add("hidden");
-          setTimeout(() => {
-            letter.classList.remove("hidden");
-          }, i * 40 + 200);
+          letter.style.transform = `rotate(${getRandom(4, -4)}deg`;
         }
       }
     }
@@ -148,35 +181,56 @@ function write(text) {
 }
 
 function initScramble() {
-  const lines = document.getElementsByClassName("scramble");
-  for (const line of lines) {
-    scramble(line);
+  scrambleElements = Array.from(document.getElementsByClassName("scramble"));
+  for (const line of scrambleElements) {
+    line.classList.add("no-transition");
+    setupScramble(line);
+    line.classList.remove("no-transition");
+  }
+}
+
+// Write animations
+////////////////////////////////////////////////////////////////////////////////
+var writeElements;
+
+function setupWrite(text) {
+  splitTextIntoLines(text);
+  for (let i = 0; i < text.children.length; i++) {
+    const line = text.children.item(i);
+    if (line) {
+      splitWordIntoLetters(line);
+      for (let i = 0; i < line.children.length; i++) {
+        const letter = line.children.item(i);
+        if (letter) {
+          letter.classList.add("hidden");
+        }
+      }
+    }
+  }
+}
+
+function write(element) {
+  for (let i = 0; i < element.children.length; i++) {
+    const line = element.children.item(i);
+    if (line) {
+      for (let i = 0; i < line.children.length; i++) {
+        const letter = line.children.item(i);
+        if (letter) {
+          setTimeout(() => {
+            letter.classList.remove("hidden");
+          }, i * 40 + 100);
+        }
+      }
+    }
   }
 }
 
 function initWrite() {
-  const texts = document.getElementsByClassName("write");
-  for (const text of texts) {
-    write(text);
+  writeElements = Array.from(document.getElementsByClassName("write"));
+  for (const text of writeElements) {
+    setupWrite(text);
   }
 }
-
-// Scroll
-////////////////////////////////////////////////////////////////////////////////
-var lastScrollTop = 0;
-const triggers = document.getElementsByClassName("animation-trigger");
-
-window.addEventListener("scroll", (event) => {
-  var scrollTop = this.scrollTop;
-
-  // toggleHeader(scrollTop);
-
-  for (const trigger of triggers) {
-    animateKeyframes(trigger);
-  }
-
-  lastScrollTop = scrollTop;
-});
 
 // Header nav
 ////////////////////////////////////////////////////////////////////////////////
@@ -191,19 +245,3 @@ window.addEventListener("scroll", (event) => {
 //     $("header").removeClass("down");
 //   }
 // }
-
-// Animations
-////////////////////////////////////////////////////////////////////////////////
-function animateKeyframes(element) {
-  var elementTop = element.offsetTop,
-    elementHeight = element.offsetHeight,
-    windowTop = window.scrollTop,
-    windowHeight = window.innerHeight;
-
-  // 0% means element has come into view, 100% means element has left view.
-  var percentage =
-    (windowTop + windowHeight - elementTop) / (windowHeight + elementHeight);
-  if (percentage >= 0 && percentage <= 1) {
-    element.find(".animation-target").css("--scroll", percentage);
-  }
-}

@@ -56,9 +56,7 @@
 .about {
   margin: $unit-sm 0 $unit-xxl 0;
   &__title {
-    @include break-at(sm) {
-      justify-content: unset !important;
-    }
+    justify-content: unset !important;
   }
   &__callout {
     min-height: $unit-xl;
