@@ -159,6 +159,9 @@ img {
 }
 .footer {
   padding: $unit-lg;
+  @include break-at(sm) {
+    padding: $unit-md $unit-sm $unit-sm $unit-sm;
+  }
   h2 {
     text-align: left;
   }
@@ -319,7 +322,7 @@ img {
       white-space: pre;
       font: inherit;
       display: inline-block;
-      @include transition(opacity, 0.05s, ease-out);
+      @include transition(opacity, 0.09s, ease-out);
       &.hidden {
         opacity: 0;
       }
