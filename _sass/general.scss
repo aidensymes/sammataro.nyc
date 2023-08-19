@@ -281,6 +281,10 @@ img {
 
 // Animations
 /////////////////////////////////////////////////////
+.pop {
+  @include transition(transform, 0.5s, cubic-bezier(0.9, 0.1, 0.1, 0.9));
+}
+
 .scramble span {
   white-space: pre;
   font: inherit;

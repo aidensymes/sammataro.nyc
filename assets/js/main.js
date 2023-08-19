@@ -1,20 +1,29 @@
 // On content loaded
 ////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
-  setH1();
+  setTextSize();
+
+  initPop();
   initScramble();
   initWrite();
   initButtons();
+});
+
+window.addEventListener("load", () => {
   triggerAllAnimations();
 });
 
 window.addEventListener("resize", () => {
-  setH1();
+  windowWidth = window.innerWidth;
+  windowHeight = window.innerHeight;
+  setTextSize();
 });
 
 // On scroll
 ////////////////////////////////////////////////////////////////////////////////
 var lastScrollTop = 0;
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
 
 function debounce(method, delay) {
   clearTimeout(method._tId);
@@ -30,10 +39,15 @@ function handleScroll() {
 }
 
 function triggerAllAnimations() {
-  if (scrambleElements.length > 0)
+  if (scrambleElements.length > 0) {
     triggerAnimation(scrambleElements, scramble, setupScramble);
-  if (writeElements.length > 0)
+  }
+  if (writeElements.length > 0) {
     triggerAnimation(writeElements, write, setupWrite);
+  }
+  if (popElements.length > 0) {
+    triggerAnimation(popElements, pop, setupPop);
+  }
 }
 
 window.onscroll = () => {
@@ -42,7 +56,7 @@ window.onscroll = () => {
 
 // Resize h1 & h2
 ////////////////////////////////////////////////////////////////////////////////
-function setH1() {
+function setTextSize() {
   const elements = document.getElementsByClassName("resize");
   const wrapper = document.getElementsByClassName("wrapper")[0];
   if (wrapper) {
@@ -103,8 +117,7 @@ function initButtons() {
 // Animation Utilties
 ////////////////////////////////////////////////////////////////////////////////
 function checkView(element) {
-  const elementTop = element?.getBoundingClientRect().top,
-    windowHeight = window.innerHeight;
+  const elementTop = element?.getBoundingClientRect().top;
 
   if (elementTop < windowHeight) {
     return true;
@@ -113,8 +126,7 @@ function checkView(element) {
 }
 
 function checkForReset(element) {
-  const elementTop = element?.getBoundingClientRect().top,
-    windowHeight = window.innerHeight;
+  const elementTop = element?.getBoundingClientRect().top;
 
   if (elementTop > windowHeight) {
     return true;
@@ -126,7 +138,9 @@ function triggerAnimation(elements, animation, reset) {
   for (const element of elements) {
     if (!element.classList.contains("no-transition") && checkView(element)) {
       animation(element);
-      element.classList.add("no-transition");
+      setTimeout(() => {
+        element.classList.add("no-transition");
+      }, 500);
     } else if (
       element.classList.contains("no-transition") &&
       checkForReset(element)
@@ -134,6 +148,31 @@ function triggerAnimation(elements, animation, reset) {
       reset(element, true);
       element.classList.remove("no-transition");
     }
+  }
+}
+
+// Image pop animation
+////////////////////////////////////////////////////////////////////////////////
+var popElements; // Get animation elements
+
+function setupPop(element, reset) {
+  const left = element.getBoundingClientRect().left,
+    percentage = left / windowWidth;
+  element.style.transform = `translateY(${20 + percentage * 80}px)`;
+}
+
+function pop(element) {
+  element.style.transform = "translateY(0px)";
+}
+
+function initPop() {
+  popElements = Array.from(document.getElementsByClassName("pop"));
+  for (const element of popElements) {
+    element.classList.add("no-transition");
+    setupPop(element);
+    setTimeout(() => {
+      element.classList.remove("no-transition");
+    }, 0);
   }
 }
 
@@ -157,7 +196,6 @@ function getRandom(min, max) {
 
 // Scramble animations
 ////////////////////////////////////////////////////////////////////////////////
-
 var scrambleElements; // Get animation elements
 
 function setupScramble(line, reset) {
@@ -253,7 +291,9 @@ function write(element) {
 function initWrite() {
   writeElements = Array.from(document.getElementsByClassName("write"));
   for (const text of writeElements) {
+    text.classList.add("no-transition");
     setupWrite(text);
+    text.classList.remove("no-transition");
   }
 }
 
