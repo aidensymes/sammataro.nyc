@@ -46,7 +46,7 @@ function triggerAllAnimations() {
     triggerAnimation(writeElements, write, setupWrite);
   }
   if (popElements.length > 0) {
-    triggerAnimation(popElements, pop, setupPop);
+    triggerAnimation(popElements, pop, setupPop, 500);
   }
 }
 
@@ -134,11 +134,17 @@ function checkForReset(element) {
   return false;
 }
 
-function triggerAnimation(elements, animation, reset) {
+function triggerAnimation(elements, animation, reset, delay) {
   for (const element of elements) {
     if (!element.classList.contains("no-transition") && checkView(element)) {
       animation(element);
-      element.classList.add("no-transition");
+      if (delay) {
+        setTimeout(() => {
+          element.classList.add("no-transition");
+        }, delay);
+      } else {
+        element.classList.add("no-transition");
+      }
     } else if (
       element.classList.contains("no-transition") &&
       checkForReset(element)
@@ -156,7 +162,7 @@ var popElements; // Get animation elements
 function setupPop(element, reset) {
   const left = element.getBoundingClientRect().left,
     percentage = left / windowWidth;
-  element.style.transform = `translateY(${20 + percentage * 80}px)`;
+  element.style.transform = `translateY(${20 + percentage * 120}px)`;
 }
 
 function pop(element) {
