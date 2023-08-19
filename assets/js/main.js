@@ -138,9 +138,7 @@ function triggerAnimation(elements, animation, reset) {
   for (const element of elements) {
     if (!element.classList.contains("no-transition") && checkView(element)) {
       animation(element);
-      setTimeout(() => {
-        element.classList.add("no-transition");
-      }, 500);
+      element.classList.add("no-transition");
     } else if (
       element.classList.contains("no-transition") &&
       checkForReset(element)
