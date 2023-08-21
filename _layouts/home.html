@@ -2,6 +2,7 @@
 <html lang="en">
   {% include head.html %}
   <body>
+    <div class="grain"></div>
     {% if site.settings.first.nav.announcement.size > 0 %}
       {% include announcement.html %}
     {% endif %}
@@ -16,7 +17,7 @@
       <h2 class="write resize col-4 col-md-7">{{ page.header.hours }}</h2>
       <h1 class="scramble resize col-4 col-md-5">Pizza&nbsp;</h1>
       <h1 class="scramble resize col-4 col-md-6-7">Joint</h1>
-      <div class="header__image header__image__left col-6 row-3 row-md-3-3">      
+      <div class="header__image header__image__left above-grain col-6 row-3 row-md-3-3">      
         {% picture "{{ page.header.left_image }}" class="pop roundedImage" %}
       </div>
       <h1 class="resize scramble col-2">In</h1>
@@ -29,7 +30,7 @@
         <h1 class="resize scramble">Austin</h1>
         <img class="header__underline pop" src="/assets/graphics/sammataro_underline.svg"></img>
       </div>
-      <div class="header__image header__image__right col-6 row-2 col-md-12">      
+      <div class="header__image header__image__right above-grain col-6 row-2 col-md-12">      
         {% picture "{{ page.header.right_image }}" class="pop roundedImage"%}
       </div>    
       <h1 class="about__title scramble col-6 col-md-12">{{ page.about.title }}</h1>
@@ -37,11 +38,11 @@
 
     <section class="about wrapper grid">
       <p class="col-4 col-sm-12">{{ page.about.blurb }}</p>
-      <div class="about__col about__col__center col-5 row-3 col-sm-6 row-1">      
+      <div class="about__col about__col__center above-grain col-5 row-3 col-sm-6 row-1">      
         {% picture "{{ page.about.images[0] }}" class="pop roundedImage" %}
         {% picture "{{ page.about.images[2] }}" class="pop roundedImage" %}
       </div>
-      <div class="about__col about__col__right col-3 row-3 col-sm-6 row-2">      
+      <div class="about__col about__col__right above-grain col-3 row-3 col-sm-6 row-2">      
         {% picture "{{ page.about.images[1] }}" class="pop roundedImage" %}
         {% picture "{{ page.about.images[3] }}" class="pop roundedImage" %}
       </div>
@@ -95,7 +96,7 @@
 
     <section class="order wrapper grid" id="order-section">
       <h1 class="col-8 col-md-12 scramble">{{ page.order.title }}</h1>
-      <div class="col-4 row-5 col-md-6-7 row-md-3">      
+      <div class="above-grain col-4 row-5 col-md-6-7 row-md-3">      
         {% picture "{{ page.order.images[0] }}" class="pop roundedImage" %}
       </div>
       <div class="order__blurb col-4 col-md-12 row-md-1-2">
@@ -109,7 +110,7 @@
           {% include button.html text = "Delivery" style = "light border" url = site.settings.first.global.delivery %}
         {% endif %}
       </div>
-      <div class="col-4-5 row-4-2 col-md-6 row-md-4-4">      
+      <div class="above-grain col-4-5 row-4-2 col-md-6 row-md-4-4">      
         {% picture "{{ page.order.images[1] }}" class="pop roundedImage" %}
       </div>
       <h2 class="order__callout write resize col-4-1 row-1-4 col-md-6 row-md-1-6">{{ page.order.callout }}</h2>
@@ -117,6 +118,5 @@
 
     {% include footer.html %}
     {% include loader.html %}
-    <div class="grain"></div>
   </body>
 </html>

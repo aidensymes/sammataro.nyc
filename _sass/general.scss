@@ -20,7 +20,6 @@ body {
 img {
   width: 100%;
   height: auto;
-  z-index: 100;
 }
 
 // Wrapper
@@ -32,7 +31,7 @@ img {
   height: 100%;
   width: 100%;
   pointer-events: none;
-  z-index: 0;
+  z-index: 100;
   transform: translateZ(0);
 
   &:before {
@@ -90,6 +89,10 @@ img {
       transform: translate3d(-7rem, 0, 0);
     }
   }
+}
+
+.above-grain {
+  z-index: 200;
 }
 
 // Wrapper
@@ -176,7 +179,9 @@ img {
       .button__strike {
         opacity: 1;
         width: 75%;
-        min-width: 40px;
+        min-height: 4px;
+        max-width: $unit-xxl;
+        min-width: $unit-md;
       }
     }
   }
@@ -192,7 +197,8 @@ img {
   &:hover {
     .button__strike {
       opacity: 1;
-      width: 75%;
+      width: 90%;
+      min-height: 4px;
       max-width: $unit-xl;
       min-width: $unit-md;
     }

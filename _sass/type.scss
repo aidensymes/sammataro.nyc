@@ -132,6 +132,7 @@ p {
 a {
   text-decoration: none;
   color: inherit;
+  width: fit-content;
   font: inherit;
   @include pointer;
 }
