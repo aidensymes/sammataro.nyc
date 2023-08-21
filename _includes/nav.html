@@ -1,9 +1,11 @@
-<section class="nav wrapper" id="nav">
+<section class="nav outer" id="nav">
+    <div class="nav__inner wrapper inner">
     <a class="nav__logo" href="/">
         <img class="nav__logo" src="{{ site.settings.first.global.logo }}"></img>
     </a>
     <div class="nav__buttons">
-        {% include button.html text = "Menus" style = "light" onclick="scrollToElement('menu-section')" %}
+        {% include button.html text = "Menu" style = "light" onclick="scrollToElement('menu-section')" %}
         {% include button.html text = "Order" style = "light border" onclick="scrollToElement('order-section')" %}
     </div>
+</div>
 </section>

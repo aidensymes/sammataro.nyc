@@ -163,24 +163,28 @@ img {
 // Top Nav
 /////////////////////////////////////////////////////
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   position: sticky;
   position: -webkit-sticky;
   top: -80px;
-  height: 80px;
   z-index: 999;
   background-color: $white;
   @include transition(top, 0.2s, ease);
-  @include break-at(sm) {
-    gap: $unit-xs;
-    top: -60px;
-    height: 60px;
-  }
   &.down {
     top: 0;
     background-color: $white;
+  }
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+  @include break-at(sm) {
+    gap: $unit-xs;
+    top: -60px;
+    .nav__inner {
+      height: 60px;
+    }
   }
 }
 .nav__logo {
