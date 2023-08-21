@@ -40,8 +40,8 @@
   <!-- Javascript  -->
   <script src='/assets/js/main.js'></script>
   <script src='/assets/js/cookies.js'></script>
-  {% if page.template == "Home" %}
-    <script src='/assets/js/{{ page.template | downcase }}.js'></script>
+  {% if page.layout == "home" %}
+    <script src='/assets/js/{{ page.title | downcase }}.js'></script>
   {% endif %}
 </head>
 

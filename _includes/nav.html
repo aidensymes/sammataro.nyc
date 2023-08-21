@@ -3,7 +3,7 @@
         <img class="nav__logo" src="{{ site.settings.first.global.logo }}"></img>
     </div>
     <div class="nav__buttons">
-        {% include button.html text = "Menus" style = "light" %}
-        {% include button.html text = "Order" style = "light border"%}
+        {% include button.html text = "Menus" style = "light" onclick="scrollToElement('menu-section', 300)" %}
+        {% include button.html text = "Order" style = "light border" onclick="scrollToElement('order-section', 300)" %}
     </div>
 </section>

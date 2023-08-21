@@ -43,7 +43,7 @@
       </div>
     </section>
 
-    <section class="menus__outer dark">
+    <section class="menus__outer dark" id="menu-section">
       <div class="menus wrapper inner grid dark">
         {% if site.settings.first.global.show_pickup %}
           <div class="menus__button col-3 col-sm-12">
@@ -85,7 +85,7 @@
       </div>
     </section>
 
-    <section class="order wrapper grid">
+    <section class="order wrapper grid" id="order-section">
       <h1 class="col-8 col-sm-12 scramble">{{ page.order.title }}</h1>
       <div class="col-4 row-3 col-sm-6-7 row-sm-2">      
         {% picture "{{ page.order.images[0] }}" class="pop" %}

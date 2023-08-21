@@ -3,9 +3,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   setTextSize();
 
-  initPop();
-  initScramble();
-  initWrite();
+  initializeAnimation("pop", popElements, setupPop);
+  initializeAnimation("write", writeElements, setupWrite);
+  initializeAnimation("scramble", scrambleElements, setupScramble);
+
   initButtons();
 });
 
@@ -19,6 +20,30 @@ window.addEventListener("resize", () => {
   windowHeight = window.innerHeight;
   setTextSize();
 });
+
+// Scroll to function
+////////////////////////////////////////////////////////////////////////////////
+function scrollToElement(id, duration) {
+  const elementY = document.getElementById(id).getBoundingClientRect().top;
+  if (!elementY) {
+    return;
+  }
+  var startingY = window.scrollY;
+  var diff = elementY - startingY;
+  var start;
+
+  window.requestAnimationFrame(function step(timestamp) {
+    if (!start) {
+      start = timestamp;
+    }
+    var time = timestamp - start;
+    var percent = Math.min(time / duration, 1);
+    window.scrollTo(0, startingY + diff * percent);
+    if (time < duration) {
+      window.requestAnimationFrame(step);
+    }
+  });
+}
 
 // On scroll
 ////////////////////////////////////////////////////////////////////////////////
@@ -117,6 +142,10 @@ function initButtons() {
 
 // Animation Utilties
 ////////////////////////////////////////////////////////////////////////////////
+var popElements = []; // Get animation elements
+var scrambleElements = [];
+var writeElements = [];
+
 function checkView(element) {
   const elementTop = element?.getBoundingClientRect().top;
 
@@ -128,7 +157,6 @@ function checkView(element) {
 
 function checkForReset(element) {
   const elementTop = element?.getBoundingClientRect().top;
-
   if (elementTop > windowHeight) {
     return true;
   }
@@ -156,10 +184,30 @@ function triggerAnimation(elements, animation, reset, delay) {
   }
 }
 
+function animationPromise(element, animation, className) {
+  return new Promise(function (resolve, reject) {
+    element.classList.add(className);
+    animation(element);
+    if (element.classList.contains(className)) {
+      resolve("Passed");
+    } else {
+      reject("Error in update class list");
+    }
+  });
+}
+
+function initializeAnimation(className, array, setup) {
+  const elements = Array.from(document.getElementsByClassName(className));
+  for (const element of elements) {
+    array.push(element);
+    animationPromise(element, setup, "no-transition").then(function () {
+      element.classList.remove("no-transition");
+    });
+  }
+}
+
 // Image pop animation
 ////////////////////////////////////////////////////////////////////////////////
-var popElements; // Get animation elements
-
 function setupPop(element, reset) {
   const left = element.getBoundingClientRect().left,
     percentage = left / windowWidth;
@@ -168,17 +216,6 @@ function setupPop(element, reset) {
 
 function pop(element) {
   element.style.transform = "translateY(0px)";
-}
-
-function initPop() {
-  popElements = Array.from(document.getElementsByClassName("pop"));
-  for (const element of popElements) {
-    element.classList.add("no-transition");
-    setupPop(element);
-    setTimeout(() => {
-      element.classList.remove("no-transition");
-    }, 0);
-  }
 }
 
 //  Text Utilities
@@ -201,8 +238,6 @@ function getRandom(min, max) {
 
 // Scramble animations
 ////////////////////////////////////////////////////////////////////////////////
-var scrambleElements; // Get animation elements
-
 function setupScramble(line, reset) {
   if (!reset) {
     splitLineIntoWords(line);
@@ -244,19 +279,8 @@ function scramble(element) {
   }
 }
 
-function initScramble() {
-  scrambleElements = Array.from(document.getElementsByClassName("scramble"));
-  for (const line of scrambleElements) {
-    line.classList.add("no-transition");
-    setupScramble(line);
-    line.classList.remove("no-transition");
-  }
-}
-
 // Write animations
 ////////////////////////////////////////////////////////////////////////////////
-var writeElements;
-
 function setupWrite(text, reset) {
   if (!reset) {
     splitTextIntoLines(text);
@@ -290,15 +314,6 @@ function write(element) {
         }
       }
     }
-  }
-}
-
-function initWrite() {
-  writeElements = Array.from(document.getElementsByClassName("write"));
-  for (const text of writeElements) {
-    text.classList.add("no-transition");
-    setupWrite(text);
-    text.classList.remove("no-transition");
   }
 }
 

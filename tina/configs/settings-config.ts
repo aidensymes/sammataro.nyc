@@ -192,6 +192,13 @@ export const settingsConfig: Collection = {
           ],
         },
         {
+          name: "announcement",
+          label: "Announcement Bar",
+          description:
+            "Enter an announcement. If this field is blank, the bar will not show on the site.",
+          type: "string",
+        },
+        {
           name: "show_email",
           label: "Show email sign up",
           description: "Should we display the email sign up in the footer?",
