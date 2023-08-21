@@ -8,6 +8,14 @@
   }
 }
 
+// Noisey BG
+/////////////////////////////////////////////////////
+@mixin noise {
+  background-image: url("../assets/graphics/noise.png");
+  background-repeat: repeat;
+  opacity: 0.5;
+}
+
 // Styles
 /////////////////////////////////////////////////////
 @mixin roundCorners() {
