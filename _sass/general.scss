@@ -13,7 +13,6 @@
 html,
 body {
   width: 100%;
-  height: 100%;
   background-color: $white;
   -webkit-overflow-scrolling: touch;
 }
@@ -164,13 +163,24 @@ img {
 // Top Nav
 /////////////////////////////////////////////////////
 .nav {
-  padding-top: $unit-md;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  position: -webkit-sticky;
+  top: -80px;
+  height: 80px;
+  z-index: 999;
+  background-color: $white;
+  @include transition(top, 0.2s, ease);
   @include break-at(sm) {
-    padding-top: $unit-sm;
     gap: $unit-xs;
+    top: -60px;
+    height: 60px;
+  }
+  &.down {
+    top: 0;
+    background-color: $white;
   }
 }
 .nav__logo {

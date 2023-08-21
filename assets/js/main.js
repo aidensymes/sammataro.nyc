@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeAnimation("scramble", scrambleElements, setupScramble);
 
   initButtons();
+  initNav();
   initAnnouncement();
 });
 
@@ -58,32 +59,16 @@ function resizeAnnouncement() {
 ////////////////////////////////////////////////////////////////////////////////
 function scrollToElement(id) {
   const element = document.getElementById(id);
-  const elementY = element.getBoundingClientRect().top;
-  if (!elementY) {
+  const distance = element.getBoundingClientRect().top;
+  if (!distance) {
     return;
   }
-  const diff = elementY - window.scrollY;
-  const duration = diff / 6;
-
-  customScroll(element, duration);
-}
-
-// c = element to scroll to or top position in pixels
-// e = duration of the scroll in ms, time scrolling
-// d = (optative) ease function. Default easeOutCuaic
-// From: https://jsfiddle.net/rafarolo/0zt14Lkv/
-// prettier-ignore
-function customScroll(c,e,d){d||(d=easeOutCuaic);
-  var a=document.documentElement;
-  if(0===a.scrollTop){var b=a.scrollTop;
-  ++a.scrollTop;a=b+1===a.scrollTop--?a:document.body}
-  b=a.scrollTop;0>=e||("object"===typeof b&&(b=b.offsetTop),
-  "object"===typeof c&&(c=c.offsetTop),function(a,b,c,f,d,e,h){
-  function g(){0>f||1<f||0>=d?a.scrollTop=c:(a.scrollTop=b-(b-c)*h(f),
-  f+=d*e,setTimeout(g,e))}g()}(a,b,c,0,1/e,20,d))}
-function easeOutCuaic(t) {
-  t--;
-  return t * t * t + 1;
+  const position = window.scrollY + distance;
+  window.scrollTo({
+    top: position,
+    left: 0,
+    behavior: "smooth",
+  });
 }
 
 // On scroll
@@ -99,12 +84,6 @@ function debounce(method, delay) {
   }, delay);
 }
 
-function handleScroll() {
-  var scrollTop = this.scrollTop;
-  triggerAllAnimations();
-  lastScrollTop = scrollTop;
-}
-
 function triggerAllAnimations() {
   if (scrambleElements.length > 0) {
     triggerAnimation(scrambleElements, scramble, setupScramble);
@@ -116,10 +95,39 @@ function triggerAllAnimations() {
     triggerAnimation(popElements, pop, setupPop, 500);
   }
 }
+var lastScrollTop;
+
+function handleScroll() {
+  triggerAllAnimations();
+  var scrollTop = window.scrollY;
+  toggleNav(scrollTop);
+  lastScrollTop = scrollTop;
+}
 
 window.onscroll = () => {
   debounce(handleScroll, 10);
 };
+
+// Header nav
+////////////////////////////////////////////////////////////////////////////////
+var nav;
+
+function initNav() {
+  nav = document.getElementById("nav");
+  toggleNav();
+}
+
+function toggleNav(scrollTop) {
+  if (nav) {
+    if (scrollTop == 0) {
+      nav.classList.remove("down");
+    } else if (scrollTop < lastScrollTop) {
+      nav.classList.add("down");
+    } else {
+      nav.classList.remove("down");
+    }
+  }
+}
 
 // Resize h1 & h2
 ////////////////////////////////////////////////////////////////////////////////
