@@ -194,12 +194,20 @@
 /////////////////////////////////////////////////////
 .order {
   margin: $unit-xxl auto;
+  &__blurb {
+    height: fit-content;
+  }
   &__buttons {
-    margin-top: $unit-md;
     display: flex;
     flex-wrap: wrap;
     height: fit-content;
     column-gap: $unit-sm;
     row-gap: $unit-xs;
+  }
+  &__callout {
+    min-height: $unit-xxl;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
