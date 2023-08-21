@@ -28,8 +28,8 @@ global:
   delivery: >-
     https://www.ubereats.com/store/sammataro-east/kvr4sq1vUSa0XPWj-J3rhg?diningMode=DELIVERY
 nav:
-  announcement: This is a sample announcement!
-  show_email: true
+  announcement: ''
+  show_email: false
   email_label: 'Get Updates:'
   email_placeholder: Enter your email
   footer_sections:
@@ -49,6 +49,7 @@ nav:
           url: 'mailto:contact@sammataro.nyc'
         - label: (123) 456-7890
 ---
+
 
 
 
