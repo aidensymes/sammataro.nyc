@@ -1,10 +1,5 @@
 import { defineConfig } from "tinacms";
-import {
-  settingsConfig,
-  homeConfig,
-  defaultPageConfig,
-  postConfig,
-} from "./configs";
+import { settingsConfig, homeConfig, defaultPageConfig } from "./configs";
 
 const BRANCH = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 
@@ -30,7 +25,6 @@ export default defineConfig({
   schema: {
     collections: [
       settingsConfig,
-      postConfig,
       {
         name: "pages",
         label: "Pages",

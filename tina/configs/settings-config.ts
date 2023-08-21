@@ -119,7 +119,7 @@ export const settingsConfig: Collection = {
           name: "show_pickup",
           label: "Show pickup button",
           description:
-            "Should we show the pickup button in the nav bar and footer?",
+            "Should we show the pickup button on the home page and footer?",
           type: "boolean",
         },
         {
@@ -132,7 +132,7 @@ export const settingsConfig: Collection = {
           name: "show_delivery",
           label: "Show delivery button?",
           description:
-            "Should we show the delivery button in the nav bar and footer?",
+            "Should we show the delivery button on the home page and footer?",
           type: "boolean",
         },
         {

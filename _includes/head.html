@@ -1,3 +1,5 @@
+{% assign settings = site.settings.first.global %}
+
 <head>
   <meta charset="UTF-8">
 
@@ -6,11 +8,20 @@
 
   <!-- Title -->
   <title>
-    {{ site.settings.first.global.title }} | {{ site.settings.first.global.tagline }}
+    {{ settings.title }} | {{ settings.tagline }}
   </title>
 
-  <!-- Description -->
-  <meta name="description" content="{{ site.settings.first.global.description }}"/>
+  <!-- Meta -->
+  <meta name="description" content="{{ settings.description }}"/>
+
+  <meta property="og:title" content="{{ settings.title }}" />
+  <meta property="og:type" content="{{ settings. tagline }}" />
+  <meta property="og:image" content="{{ settings.thumbnail }}" />
+
+  <meta name="twitter:title" content="{{ settings.title }}">
+  <meta name="twitter:description" content="{{ settings.description }}">
+  <meta name="twitter:image" content="{{ settings.thumbnail }}">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- CSS -->
   <link rel="stylesheet" href='/css/styles.css'>
