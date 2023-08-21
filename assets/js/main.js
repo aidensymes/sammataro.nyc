@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeAnimation("scramble", scrambleElements, setupScramble);
 
   initButtons();
+  initAnnouncement();
 });
 
 window.addEventListener("load", () => {
@@ -19,7 +20,37 @@ window.addEventListener("resize", () => {
   windowWidth = window.innerWidth;
   windowHeight = window.innerHeight;
   setTextSize();
+  resizeAnnouncement();
 });
+
+// Announcement nav
+////////////////////////////////////////////////////////////////////////////////
+// From: https://stackoverflow.com/questions/51505446/css-scrolling-text-loop
+var outer, content, loop, text;
+
+function initAnnouncement() {
+  outer = document.querySelector("#announcement__outer");
+  content = outer.querySelector("#announcement__content");
+  loop = outer.querySelector("#announcement__loop");
+  text = content.innerHTML;
+  repeatContent(content, outer.offsetWidth);
+}
+
+function repeatContent(el, outerWidth) {
+  const html = el.innerHTML;
+  const counter = Math.ceil(outerWidth / el.offsetWidth + 4); // Add a few to be safe
+
+  loop.style.transitionDuration = `${counter * 4}s`;
+
+  for (let i = 0; i <= counter; i++) {
+    el.innerHTML += html;
+  }
+}
+
+function resizeAnnouncement() {
+  content.innerHTML = text;
+  repeatContent(content, outer.offsetWidth);
+}
 
 // Scroll to function
 ////////////////////////////////////////////////////////////////////////////////

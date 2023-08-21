@@ -326,6 +326,38 @@ img {
   }
 }
 
+// Announcement
+/////////////////////////////////////////////////////
+.announcement {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $unit-md;
+  background-color: $black;
+  color: $white;
+
+  &#announcement__outer {
+    overflow: hidden;
+    div {
+      display: inline-block;
+    }
+    #announcement__loop {
+      white-space: nowrap;
+      animation: loop-anim 20s linear infinite;
+      @include h3;
+    }
+  }
+
+  @keyframes loop-anim {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -50%;
+    }
+  }
+}
+
 // Animations
 /////////////////////////////////////////////////////
 .pop {

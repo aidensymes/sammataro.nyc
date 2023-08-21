@@ -1,3 +1,5 @@
+@import "units";
+
 // Pointer
 /////////////////////////////////////////////////////
 @mixin pointer {
@@ -15,13 +17,17 @@
 // Styles
 /////////////////////////////////////////////////////
 @mixin roundCorners() {
-  border-radius: 4px;
+  border-radius: $unit-xxs;
 }
 
 @mixin roundImageCorners() {
   @include roundCorners();
   line-height: 0;
   overflow: hidden;
+}
+
+.roundedImage {
+  @include roundImageCorners();
 }
 
 @mixin sticky() {

@@ -2,6 +2,9 @@
 <html lang="en">
   {% include head.html %}
   <body>
+    {% if site.settings.first.nav.announcement.size > 0 %}
+      {% include announcement.html %}
+    {% endif %}
     {% include cookieBar.html %}
     {% include nav.html %}
 
@@ -14,7 +17,7 @@
       <h1 class="scramble resize col-4 col-md-5">Pizza&nbsp;</h1>
       <h1 class="scramble resize col-4 col-md-6-7">Joint</h1>
       <div class="header__image header__image__left col-6 row-3 row-md-3-3">      
-        {% picture "{{ page.header.left_image }}" class="pop" %}
+        {% picture "{{ page.header.left_image }}" class="pop roundedImage" %}
       </div>
       <h1 class="resize scramble col-2">In</h1>
       <h2 class="resize write col-4">{{ page.header.address }}</h2>
@@ -23,7 +26,7 @@
         <img class="header__underline pop" src="/assets/graphics/sammataro_underline.svg"></img>
       </div>
       <div class="header__image header__image__right col-6 row-2 col-md-12">      
-        {% picture "{{ page.header.right_image }}" class="pop"%}
+        {% picture "{{ page.header.right_image }}" class="pop roundedImage"%}
       </div>    
       <h1 class="about__title scramble col-6 col-md-12">{{ page.about.title }}</h1>
     </header>
@@ -31,12 +34,12 @@
     <section class="about wrapper grid">
       <p class="col-4 col-sm-12">{{ page.about.blurb }}</p>
       <div class="about__col about__col__center col-5 row-3 col-sm-6 row-1">      
-        {% picture "{{ page.about.images[0] }}" class="pop" %}
-        {% picture "{{ page.about.images[2] }}" class="pop" %}
+        {% picture "{{ page.about.images[0] }}" class="pop roundedImage" %}
+        {% picture "{{ page.about.images[2] }}" class="pop roundedImage" %}
       </div>
       <div class="about__col about__col__right col-3 row-3 col-sm-6 row-2">      
-        {% picture "{{ page.about.images[1] }}" class="pop" %}
-        {% picture "{{ page.about.images[3] }}" class="pop" %}
+        {% picture "{{ page.about.images[1] }}" class="pop roundedImage" %}
+        {% picture "{{ page.about.images[3] }}" class="pop roundedImage" %}
       </div>
       <div class="about__callout col-4-1 col-sm-6 row-sm-1-2">
         <h2 class="write resize">{{ page.about.callout }}</h2>
@@ -89,7 +92,7 @@
     <section class="order wrapper grid" id="order-section">
       <h1 class="col-8 col-sm-12 scramble">{{ page.order.title }}</h1>
       <div class="col-4 row-3 col-sm-6-7 row-sm-2">      
-        {% picture "{{ page.order.images[0] }}" class="pop" %}
+        {% picture "{{ page.order.images[0] }}" class="pop roundedImage" %}
       </div>
       <div class="col-4 col-sm-12 row-sm-1-2">
         <p>{{ page.order.blurb }}</p>
@@ -103,7 +106,7 @@
         </div>
       </div>
       <div class="col-4 row-2 col-sm-6">      
-        {% picture "{{ page.order.images[1] }}" class="pop" %}
+        {% picture "{{ page.order.images[1] }}" class="pop roundedImage" %}
       </div>
       <h2 class="write resize col-4-1 col-sm-6">{{ page.order.callout }}</h2>
     </section>

@@ -2,6 +2,9 @@
 <html lang="en">
   {% include head.html %}
   <body>
+    {% if site.settings.first.nav.announcement.size > 0 %}
+        {% include announcement.html %}
+    {% endif %}
     {% include cookieBar.html %}
     {% include nav.html %}
 
