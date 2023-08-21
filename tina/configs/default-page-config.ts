@@ -26,5 +26,11 @@ export const defaultPageConfig: Template = {
       label: "Permalink",
       type: "string",
     },
+    {
+      name: "content",
+      label: "Content",
+      type: "rich-text",
+      isBody: true,
+    },
   ],
 };

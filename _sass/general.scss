@@ -129,6 +129,33 @@ img {
   }
 }
 
+.toggle {
+  width: $unit-md;
+  border-radius: 100px;
+  height: $unit-sm;
+  background-color: $dark-gray;
+  border: 1px solid $black;
+  padding: 1px;
+  @include transition(background-color, 0.15s, ease);
+  &:hover {
+    cursor: pointer;
+  }
+  &--circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 100px;
+    background-color: $white;
+    @include transition(margin, 0.15s, ease);
+  }
+  &.on {
+    background-color: #44963b;
+    justify-content: flex-end;
+    .toggle--circle {
+      margin-left: 20px;
+    }
+  }
+}
+
 // Top Nav
 /////////////////////////////////////////////////////
 .nav {
@@ -249,25 +276,26 @@ img {
 #cookieBar {
   display: none;
   position: fixed;
-  bottom: 5px;
-  right: 5px;
-  margin-left: 5px;
+  bottom: $unit-xxs;
+  right: $unit-xxs;
+  margin-left: $unit-xxs;
   z-index: 999;
 }
 
 .cookieBar__text {
-  border-radius: 5px;
-  background-color: #333333;
+  background-color: $black;
+  color: $white;
+  border-radius: $unit-xxs;
   padding: $unit-sm;
   font-size: $unit-xs;
-  font-weight: 200;
+  display: flex;
+  align-items: center;
+  gap: $unit-sm;
   p {
-    font-size: 12px;
-    display: inline;
-    float: left;
-    margin-right: 5px;
+    @include p;
   }
   a {
+    font: inherit;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
@@ -308,7 +336,7 @@ img {
   white-space: pre;
   font: inherit;
   display: inline-block;
-  z-index: 999;
+  z-index: 900;
   @include transition(transform, 0.6s, cubic-bezier(0.9, 0.1, 0.1, 0.9));
   transition-delay: 0;
 }

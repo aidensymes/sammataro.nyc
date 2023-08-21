@@ -1,0 +1,21 @@
+.default__content {
+  margin-top: $unit-md;
+  margin-bottom: $unit-xxl;
+
+  hr {
+    margin: $unit-md 0;
+  }
+
+  p {
+    margin: $unit-md 0;
+  }
+}
+
+.privacy__toggle__wrapper {
+  display: flex;
+  align-items: center;
+  gap: $unit-xs;
+  h3:last-of-type {
+    flex-grow: 1;
+  }
+}
