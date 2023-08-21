@@ -48,8 +48,10 @@ function repeatContent(el, outerWidth) {
 }
 
 function resizeAnnouncement() {
-  content.innerHTML = text;
-  repeatContent(content, outer.offsetWidth);
+  if (content) {
+    content.innerHTML = text;
+    repeatContent(content, outer.offsetWidth);
+  }
 }
 
 // Scroll to function

@@ -79,6 +79,7 @@ img {
   border: 0px;
   position: relative;
   white-space: nowrap;
+  @include pointer;
   &.light {
     background-color: $white;
     color: $black;
@@ -127,6 +128,10 @@ img {
       min-width: $unit-md;
     }
   }
+}
+
+.external button:hover {
+  cursor: ne-resize !important;
 }
 
 .toggle {

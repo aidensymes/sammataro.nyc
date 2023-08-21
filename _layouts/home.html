@@ -54,13 +54,13 @@
       <div class="menus wrapper inner grid dark">
         {% if site.settings.first.global.show_pickup %}
           <div class="menus__button col-3 col-sm-12">
-            {% include button.html text = "Order Pickup" style = "dark" url = site.settings.first.global.pickup external=true %}
+            {% include button.html text = "Order Pickup" style = "dark" url = site.settings.first.global.pickup %}
           </div>
         {% endif %}
         <h1 class="menus__title scramble col-6-4 col-sm-12">{{ page.menu_section.title }}</h1>
         {% if site.settings.first.global.show_delivery %}
           <div class="menus__button col-3 col-sm-12">
-            {% include button.html text = "Order Delivery" style = "dark" url = site.settings.first.global.delivery external=true %}
+            {% include button.html text = "Order Delivery" style = "dark" url = site.settings.first.global.delivery %}
           </div>
         {% endif %}
         <div class="col-6-4 col-md-10-2 col-sm-12">
@@ -103,10 +103,10 @@
       </div>
       <div class="col-4-1 order__buttons">
         {% if site.settings.first.global.show_pickup %}
-          {% include button.html text = "Order Pickup" style = "light border" url = site.settings.first.global.pickup external=true %}
+          {% include button.html text = "Order Pickup" style = "light border" url = site.settings.first.global.pickup %}
         {% endif %}
         {% if site.settings.first.global.show_delivery %}
-          {% include button.html text = "Order Delivery" style = "light border" url = site.settings.first.global.delivery external=true %}
+          {% include button.html text = "Order Delivery" style = "light border" url = site.settings.first.global.delivery %}
         {% endif %}
       </div>
       <div class="col-4 row-2 col-sm-6">      

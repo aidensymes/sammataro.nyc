@@ -43,12 +43,12 @@
                     {% if forloop.first %}
                         {% if settings.global.show_pickup %}
                             <li>
-                                {% include button.html text="Order Pickup" style = "dark" url = settings.global.pickup external=true%}
+                                {% include button.html text="Order Pickup" style = "dark" url = settings.global.pickup%}
                             </li>
                         {% endif %}
                         {% if settings.global.show_delivery %}
                             <li>
-                                {% include button.html text="Order Delivery" style = "dark" url = settings.global.delivery external=true%}
+                                {% include button.html text="Order Delivery" style = "dark" url = settings.global.delivery%}
                             </li>
                         {% endif %}
                     {% endif %}
@@ -56,7 +56,7 @@
                         {% assign text = button.label %}
                         {% assign url = button.url %}
                         <li>
-                            {% include button.html text=text style = "dark" url=url external=true%}
+                            {% include button.html text=text style = "dark" url=url%}
                         </li>
                     {% endfor  %}
                 </ul>

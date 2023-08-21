@@ -1,5 +1,5 @@
 {% if include.url %}
-    <a href="{{ include.url }}" {% if include.external %}target="_blank"{% endif %}>
+    <a href="{{ include.url }}" {% if include.url contains 'http://' or include.url contains 'https://' %}target="_blank" class="external"{% endif %}>
 {% endif  %}
 
 <button class="button {% if include.style != blank %}{{ include.style }}{% endif %}" {% if include.onclick %} onclick="{{ include.onclick }}"{% endif %}{{ include.data }}>
