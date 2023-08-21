@@ -41,13 +41,13 @@ img {
   }
   @include break-at("md") {
     padding: 0 $unit-md;
-  }
-  @include break-at("sm") {
-    padding: 0 $unit-sm;
     &.grid {
       grid-column-gap: $unit-xs;
       grid-row-gap: $unit-xs;
     }
+  }
+  @include break-at("sm") {
+    padding: 0 $unit-sm;
   }
 }
 
@@ -195,6 +195,10 @@ img {
   &__address {
     display: flex;
     gap: $unit-sm;
+    a:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
   }
   &__icon {
     height: $unit-md;
@@ -245,6 +249,9 @@ img {
     margin-top: $unit-lg;
     ul {
       margin-left: -$unit-sm;
+      li {
+        width: fit-content;
+      }
     }
     @include break-at(md) {
       margin-top: $unit-md;
@@ -252,6 +259,12 @@ img {
   }
   &__credits {
     text-align: right;
+    a {
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
   }
   &__copyright,
   &__credits {
@@ -264,14 +277,6 @@ img {
 
 // Cookie Bar
 /////////////////////////////////////////////////////
-.default__content {
-  a {
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
 
 #cookieBar {
   display: none;

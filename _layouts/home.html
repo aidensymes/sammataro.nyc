@@ -20,7 +20,11 @@
         {% picture "{{ page.header.left_image }}" class="pop roundedImage" %}
       </div>
       <h1 class="resize scramble col-2">In</h1>
-      <h2 class="resize write col-4">{{ page.header.address }}</h2>
+      <a class="col-4" href="{{ site.settings.first.global.address_url }}" target="_blank">
+        <h2 class="resize write">
+            {{ page.header.address }}
+        </h2>
+      </a> 
       <div class="header__final col-6">
         <h1 class="resize scramble">Austin</h1>
         <img class="header__underline pop" src="/assets/graphics/sammataro_underline.svg"></img>
@@ -96,14 +100,14 @@
       </div>
       <div class="col-4 col-sm-12 row-sm-1-2">
         <p>{{ page.order.blurb }}</p>
-        <div class="order__buttons">
-          {% if site.settings.first.global.show_pickup %}
-            {% include button.html text = "Order Pickup" style = "light border" url = site.settings.first.global.pickup %}
-          {% endif %}
-          {% if site.settings.first.global.show_delivery %}
-            {% include button.html text = "Order Delivery" style = "light border" url = site.settings.first.global.delivery%}
-          {% endif %}
-        </div>
+      </div>
+      <div class="col-4-1 order__buttons">
+        {% if site.settings.first.global.show_pickup %}
+          {% include button.html text = "Order Pickup" style = "light border" url = site.settings.first.global.pickup external=true %}
+        {% endif %}
+        {% if site.settings.first.global.show_delivery %}
+          {% include button.html text = "Order Delivery" style = "light border" url = site.settings.first.global.delivery external=true %}
+        {% endif %}
       </div>
       <div class="col-4 row-2 col-sm-6">      
         {% picture "{{ page.order.images[1] }}" class="pop roundedImage" %}

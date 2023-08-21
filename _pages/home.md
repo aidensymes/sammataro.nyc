@@ -42,7 +42,7 @@ order:
     - /assets/uploads/unnamed (10).jpg
     - /assets/uploads/unnamed (8).jpg
 menu_section:
-  title: Menus
+  title: Menu
   limit: 3
   menus:
     - name: Pizza
@@ -71,6 +71,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 

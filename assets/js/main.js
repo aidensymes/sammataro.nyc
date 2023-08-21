@@ -38,9 +38,9 @@ function initAnnouncement() {
 
 function repeatContent(el, outerWidth) {
   const html = el.innerHTML;
-  const counter = Math.ceil(outerWidth / el.offsetWidth + 4); // Add a few to be safe
+  const counter = Math.ceil(outerWidth / el.offsetWidth + 3); // Add a few to be safe
 
-  loop.style.transitionDuration = `${counter * 4}s`;
+  loop.style.animationDuration = `${counter * 5}s`;
 
   for (let i = 0; i <= counter; i++) {
     el.innerHTML += html;

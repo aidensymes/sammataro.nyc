@@ -77,6 +77,13 @@ export const settingsConfig: Collection = {
           type: "string",
         },
         {
+          name: "address_url",
+          label: "Address URL",
+          description:
+            "The URL you want your address to link to (Google Maps, etc.)",
+          type: "string",
+        },
+        {
           name: "hours",
           label: "Hours",
           type: "object",

@@ -64,6 +64,9 @@
   font-weight: 700;
   letter-spacing: toRem(-4.8);
   text-transform: uppercase;
+  @include break-at(xl) {
+    font-size: toRem(120);
+  }
   @include break-at(lg) {
     font-size: toRem(100);
   }
@@ -118,13 +121,23 @@ h3 {
 
 p {
   @include p();
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font: inherit;
+  @include pointer;
+}
+
+li {
+  list-style-type: none;
 }
 
 .nowrap {

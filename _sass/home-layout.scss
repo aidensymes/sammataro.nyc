@@ -13,11 +13,20 @@
   }
   h1,
   h2,
+  a,
   .header__final,
   .header__icon {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  a {
+    width: fit-content;
+    margin: 0 auto;
+    &:hover span {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
   }
   h2 {
     @include break-at(sm) {
@@ -74,7 +83,7 @@
   &__col {
     img {
       margin-bottom: $unit-sm;
-      @include break-at(sm) {
+      @include break-at(md) {
         margin-bottom: $unit-xs;
       }
     }
@@ -189,6 +198,7 @@
     margin-top: $unit-md;
     display: flex;
     flex-wrap: wrap;
+    height: fit-content;
     column-gap: $unit-sm;
     row-gap: $unit-xs;
   }
