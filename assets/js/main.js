@@ -23,26 +23,34 @@ window.addEventListener("resize", () => {
 
 // Scroll to function
 ////////////////////////////////////////////////////////////////////////////////
-function scrollToElement(id, duration) {
-  const elementY = document.getElementById(id).getBoundingClientRect().top;
+function scrollToElement(id) {
+  const element = document.getElementById(id);
+  const elementY = element.getBoundingClientRect().top;
   if (!elementY) {
     return;
   }
-  var startingY = window.scrollY;
-  var diff = elementY - startingY;
-  var start;
+  const diff = elementY - window.scrollY;
+  const duration = diff / 6;
 
-  window.requestAnimationFrame(function step(timestamp) {
-    if (!start) {
-      start = timestamp;
-    }
-    var time = timestamp - start;
-    var percent = Math.min(time / duration, 1);
-    window.scrollTo(0, startingY + diff * percent);
-    if (time < duration) {
-      window.requestAnimationFrame(step);
-    }
-  });
+  customScroll(element, duration);
+}
+
+// c = element to scroll to or top position in pixels
+// e = duration of the scroll in ms, time scrolling
+// d = (optative) ease function. Default easeOutCuaic
+// From:
+// prettier-ignore
+function customScroll(c,e,d){d||(d=easeOutCuaic);
+  var a=document.documentElement;
+  if(0===a.scrollTop){var b=a.scrollTop;
+  ++a.scrollTop;a=b+1===a.scrollTop--?a:document.body}
+  b=a.scrollTop;0>=e||("object"===typeof b&&(b=b.offsetTop),
+  "object"===typeof c&&(c=c.offsetTop),function(a,b,c,f,d,e,h){
+  function g(){0>f||1<f||0>=d?a.scrollTop=c:(a.scrollTop=b-(b-c)*h(f),
+  f+=d*e,setTimeout(g,e))}g()}(a,b,c,0,1/e,20,d))}
+function easeOutCuaic(t) {
+  t--;
+  return t * t * t + 1;
 }
 
 // On scroll
