@@ -135,6 +135,9 @@
 }
 
 .menu {
+  position: relative;
+  height: 320px;
+  overflow-y: hidden;
   @include transition(height, 0.2s, ease-out);
   &__item {
     padding-top: $unit-lg;
@@ -154,12 +157,27 @@
   }
   &__bottom {
     margin: $unit-lg auto 0 auto;
-    &__open {
-      display: block;
-    }
-    &__hide {
+    display: block;
+    &.hide {
       display: none;
     }
+  }
+}
+#menu__fade {
+  width: 100%;
+  height: $unit-xl;
+  position: absolute;
+  display: block;
+  z-index: 900;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, #232323 0%, rgba(35, 35, 35, 0) 100%);
+  opacity: 1;
+  @include transition(opacity, 0.1s, ease-out);
+  &.hide {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 

@@ -38,7 +38,7 @@ function scrollToElement(id) {
 // c = element to scroll to or top position in pixels
 // e = duration of the scroll in ms, time scrolling
 // d = (optative) ease function. Default easeOutCuaic
-// From:
+// From: https://jsfiddle.net/rafarolo/0zt14Lkv/
 // prettier-ignore
 function customScroll(c,e,d){d||(d=easeOutCuaic);
   var a=document.documentElement;

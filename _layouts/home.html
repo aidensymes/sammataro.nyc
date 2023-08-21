@@ -78,9 +78,10 @@
                   </div>
                 {% endfor %}
             {% endfor %}
+            <div id="menu__fade"></div>
           </div>
           {% include button.html text = "See all" style = "dark border  menu__bottom menu__bottom__open" onclick = "openMenu()" %}
-          {% include button.html text = "Collapse Menu" style = "dark border  menu__bottom menu__bottom__hide" onclick = "closeMenu()" %}
+          {% include button.html text = "Collapse Menu" style = "dark border  menu__bottom menu__bottom__close hide" onclick = "closeMenu()" %}
         </div>
       </div>
     </section>
