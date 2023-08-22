@@ -55,7 +55,7 @@ menu_section:
           price: $34.00
         - name: Red Pie
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-          price: $26.00
+          price: $24.00
         - name: Vodka Pie
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
           price: $26.00
@@ -71,6 +71,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
