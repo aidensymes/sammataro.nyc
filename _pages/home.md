@@ -71,7 +71,7 @@ menu_section:
             heat, layered with a sweet, subtly smoky and fruity flavor
           price: '3.00'
         - name: Ranch
-          description: 'Best of the best, made in house'
+          description: 'best of the best, made in house'
           price: '2.50'
     - name: Desserts
     - name: Drinks
@@ -84,6 +84,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
