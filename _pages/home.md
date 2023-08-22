@@ -64,6 +64,10 @@ menu_section:
           description: Coming soon.
           price: $28.00
     - name: Sides
+      item:
+        - name: Ranch
+          description: Made in house
+          price: '2.50'
     - name: Desserts
     - name: Drinks
       item:
@@ -75,6 +79,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
