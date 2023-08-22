@@ -66,7 +66,7 @@ menu_section:
     - name: Sides
       item:
         - name: Ranch
-          description: Made in house
+          description: 'Best of the best, made in house'
           price: '2.50'
     - name: Desserts
     - name: Drinks
@@ -79,6 +79,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
