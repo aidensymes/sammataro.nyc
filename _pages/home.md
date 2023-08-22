@@ -76,14 +76,15 @@ menu_section:
     - name: Desserts
     - name: Drinks
       item:
-        - name: Drink 1
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-          price: $4.00
+        - name: Water
+          description: ''
+          price: '2.00'
         - name: Drink 2
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
           price: $4.00
 _template: home
 ---
+
 
 
 
