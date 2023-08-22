@@ -73,7 +73,6 @@ menu_section:
         - name: Ranch
           description: 'best of the best, made in house'
           price: '2.50'
-    - name: Desserts
     - name: Drinks
       item:
         - name: Water
@@ -82,8 +81,10 @@ menu_section:
         - name: Bawi (Lime)
           description: ''
           price: '3.50'
+    - name: ''
 _template: home
 ---
+
 
 
 
