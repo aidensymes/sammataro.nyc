@@ -47,8 +47,10 @@ nav:
       links:
         - label: contact@sammataro.nyc
           url: 'mailto:contact@sammataro.nyc'
-        - label: (123) 456-7890
+        - label: (512) 690-1547
+          url: 'tel:512-690-1547'
 ---
+
 
 
 
