@@ -15,12 +15,6 @@ _template: default
 
 ***
 
-### Photography:
-
-Photo credit goes here
-
-***
-
 ### Fonts:
 
 Alte Haas Grotesk, by [Yann le Coroller](https://www.yannlecoroller.com/ "Yann le Coroller")
