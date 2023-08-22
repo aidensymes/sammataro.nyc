@@ -59,8 +59,8 @@ menu_section:
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
           price: $24.00
         - name: Vodka Pie
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-          price: $26.00
+          description: Coming soon.
+          price: $28.00
     - name: Sides
     - name: Desserts
     - name: Drinks
@@ -73,6 +73,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
