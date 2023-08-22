@@ -32,9 +32,8 @@ menus:
           price: $26.00
 order:
   title: Order
-  blurb: >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet nisl
-    diam.
+  blurb: |
+    Place an order online for pickup or delivery.
   pickup: true
   delivery: true
   callout: Get Sammataro<br>anywhere
@@ -83,6 +82,7 @@ menu_section:
           price: '3.50'
 _template: home
 ---
+
 
 
 
