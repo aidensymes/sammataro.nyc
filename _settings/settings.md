@@ -45,11 +45,10 @@ nav:
           url: 'https://www.yelp.com/biz/sammataro-austin'
     - title: Contact
       links:
-        - label: contact@sammataro.nyc
-          url: 'mailto:contact@sammataro.nyc'
         - label: (512) 690-1547
           url: 'tel:512-690-1547'
 ---
+
 
 
 
