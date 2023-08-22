@@ -53,7 +53,7 @@ menu_section:
             aged parm, fresh basil, and finished with extra virgin olive oil
           price: $24.00
         - name: Supreme
-          description: 'Our classic pie, topped with Sausage, Pepperoni, Mushroom, & Shallot'
+          description: 'our classic pie, topped with Sausage, Pepperoni, Mushroom, & Shallot'
           price: $34.00
         - name: 'Red Pie '
           description: >-
@@ -84,6 +84,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
