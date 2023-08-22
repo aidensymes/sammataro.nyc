@@ -65,6 +65,11 @@ menu_section:
           price: $28.00
     - name: Sides
       item:
+        - name: Calabrian Chilis
+          description: >-
+            Chili pepper grown in Southern Italy with a medium hot level of
+            heat, layered with a sweet, subtly smoky and fruity flavor
+          price: '3.00'
         - name: Ranch
           description: 'Best of the best, made in house'
           price: '2.50'
@@ -79,6 +84,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
