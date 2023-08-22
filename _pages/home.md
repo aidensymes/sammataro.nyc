@@ -79,11 +79,12 @@ menu_section:
         - name: Water
           description: ''
           price: '2.00'
-        - name: Drink 2
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-          price: $4.00
+        - name: Bawi (Lime)
+          description: ''
+          price: '3.50'
 _template: home
 ---
+
 
 
 
