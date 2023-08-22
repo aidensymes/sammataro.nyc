@@ -31,10 +31,12 @@ var outer, content, loop, text;
 
 function initAnnouncement() {
   outer = document.querySelector("#announcement__outer");
-  content = outer.querySelector("#announcement__content");
-  loop = outer.querySelector("#announcement__loop");
-  text = content.innerHTML;
-  repeatContent(content, outer.offsetWidth);
+  if (outer) {
+    content = outer.querySelector("#announcement__content");
+    loop = outer.querySelector("#announcement__loop");
+    text = content.innerHTML;
+    repeatContent(content, outer.offsetWidth);
+  }
 }
 
 function repeatContent(el, outerWidth) {
@@ -63,7 +65,7 @@ function scrollToElement(id) {
   if (!distance) {
     return;
   }
-  const position = window.scrollY + distance;
+  const position = window.scrollY + distance - 40;
   window.scrollTo({
     top: position,
     left: 0,
@@ -111,6 +113,7 @@ window.onscroll = () => {
 // Header nav
 ////////////////////////////////////////////////////////////////////////////////
 var nav;
+var preventNavhide = false;
 
 function initNav() {
   nav = document.getElementById("nav");
@@ -123,7 +126,11 @@ function toggleNav(scrollTop) {
       nav.classList.remove("down");
     } else if (scrollTop < lastScrollTop) {
       nav.classList.add("down");
-    } else {
+      preventNavhide = true;
+      setTimeout(() => {
+        preventNavhide = false;
+      }, 500);
+    } else if (preventNavhide === false) {
       nav.classList.remove("down");
     }
   }
@@ -365,17 +372,3 @@ function write(element) {
     }
   }
 }
-
-// Header nav
-////////////////////////////////////////////////////////////////////////////////
-// function toggleHeader(scrollTop) {
-//   if ($(".fullscreen-nav").is(":visible")) {
-//     $("header").addClass("down");
-//   } else if (scrollTop == 0) {
-//     $("header").removeClass("down");
-//   } else if (scrollTop < lastScrollTop) {
-//     $("header").addClass("down");
-//   } else {
-//     $("header").removeClass("down");
-//   }
-// }

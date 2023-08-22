@@ -4,8 +4,13 @@
         <img class="nav__logo" src="{{ site.settings.first.global.logo }}"></img>
     </a>
     <div class="nav__buttons">
-        {% include button.html text = "Menu" style = "light" onclick="scrollToElement('menu-section')" %}
-        {% include button.html text = "Order" style = "light border" onclick="scrollToElement('order-section')" %}
+        {% if page.layout == 'home' %}
+            {% include button.html text = "Menu" style = "light" onclick="scrollToElement('menu')" %}
+            {% include button.html text = "Order" style = "light border" onclick="scrollToElement('order')" %}
+        {% else %}
+            {% include button.html text = "Menu" style = "light" url="/#menu" %}
+            {% include button.html text = "Order" style = "light border" url="/#order" %}
+        {% endif %}
     </div>
 </div>
 </section>

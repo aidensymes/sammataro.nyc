@@ -13,7 +13,9 @@ var menuHeight = 320;
 function getMenuHeight(menu) {
   var newHeight = 0;
   for (const child of menu.children) {
-    newHeight += child.offsetHeight;
+    if (child.classList.contains("menu__item")) {
+      newHeight += child.offsetHeight;
+    }
   }
   return newHeight;
 }
@@ -21,7 +23,7 @@ function getMenuHeight(menu) {
 function initMenu() {
   items = document.getElementsByClassName("menu__item");
   menuSelect = document.getElementsByClassName("menus__select__item");
-  menu = document.getElementById("menu");
+  menu = document.getElementById("menu__inner");
   fade = document.getElementById("menu__fade");
   buttonOpen = document.getElementsByClassName("menu__bottom__open")[0];
   buttonClose = document.getElementsByClassName("menu__bottom__close")[0];

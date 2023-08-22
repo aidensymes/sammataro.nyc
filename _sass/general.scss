@@ -177,11 +177,7 @@ img {
     padding: 0;
     &.selected {
       .button__strike {
-        opacity: 1;
-        width: 75%;
-        min-height: 4px;
-        max-width: $unit-xxl;
-        min-width: $unit-md;
+        @include buttonStrike();
       }
     }
   }
@@ -196,11 +192,7 @@ img {
   }
   &:hover {
     .button__strike {
-      opacity: 1;
-      width: 90%;
-      min-height: 4px;
-      max-width: $unit-xl;
-      min-width: $unit-md;
+      @include buttonStrike();
     }
   }
 }

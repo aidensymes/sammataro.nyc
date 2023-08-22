@@ -51,7 +51,7 @@
       </div>
     </section>
 
-    <section class="menus__outer dark" id="menu-section">
+    <section class="menus__outer dark" id="menu">
       <div class="menus wrapper inner grid dark">
         {% if site.settings.first.global.show_pickup %}
           <div class="menus__button col-3 col-sm-12">
@@ -74,7 +74,7 @@
             {% endfor %}
           </div>
 
-          <div class="menu" id="menu">
+          <div class="menu" id="menu__inner">
             {% for menu in page.menu_section.menus %}
                 {% for item in menu.item %}
                   <div class="menu__item" data-menu="{{ menu.name }}">
@@ -94,7 +94,7 @@
       </div>
     </section>
 
-    <section class="order wrapper grid" id="order-section">
+    <section class="order wrapper grid" id="order">
       <h1 class="col-8 col-md-12 scramble">{{ page.order.title }}</h1>
       <div class="above-grain col-4 row-5 col-md-6-7 row-md-3">      
         {% picture "{{ page.order.images[0] }}" class="pop roundedImage" %}

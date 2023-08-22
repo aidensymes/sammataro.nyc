@@ -133,10 +133,7 @@
       &:hover {
         cursor: pointer;
         .button__strike {
-          opacity: 1;
-          width: 75%;
-          max-width: $unit-xl;
-          min-width: $unit-md;
+          @include buttonStrike();
         }
       }
     }
@@ -152,6 +149,7 @@
     padding-top: $unit-lg;
     &.hide {
       display: none;
+      height: 0;
     }
     &.show {
       display: block;
@@ -186,6 +184,7 @@
   @include transition(opacity, 0.1s, ease-out);
   &.hide {
     opacity: 0;
+    height: 0;
     pointer-events: none;
   }
 }

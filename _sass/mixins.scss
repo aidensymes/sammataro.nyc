@@ -18,6 +18,14 @@
 
 // Styles
 /////////////////////////////////////////////////////
+@mixin buttonStrike() {
+  opacity: 1;
+  width: 90%;
+  min-height: 4px;
+  max-width: $unit-xl;
+  min-width: $unit-md;
+}
+
 @mixin roundCorners() {
   border-radius: $unit-xxs;
 }
