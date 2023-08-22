@@ -48,7 +48,9 @@ menu_section:
     - name: Pizza
       item:
         - name: Classic
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+          description: >-
+            16" pie with homemade tomato sauce, fresh + low moisture mozzarella,
+            aged parm, fresh basil, and finished with extra virgin olive oil
           price: $24.00
         - name: Supreme
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
@@ -71,6 +73,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
