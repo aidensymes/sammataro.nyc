@@ -61,7 +61,7 @@ menu_section:
             olive oil.
           price: $24.00
         - name: Vodka Pie
-          description: Coming soon.
+          description: coming back soon...
           price: $28.00
     - name: Sides
       item:
@@ -84,6 +84,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
