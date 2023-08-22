@@ -52,7 +52,7 @@ menu_section:
           price: $24.00
         - name: Supreme
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-          price: $26.00
+          price: $34.00
         - name: Red Pie
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
           price: $26.00
@@ -71,6 +71,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
