@@ -55,8 +55,10 @@ menu_section:
         - name: Supreme
           description: 'Our classic pie, topped with Sausage, Pepperoni, Mushroom, & Shallot'
           price: $34.00
-        - name: Red Pie
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+        - name: 'Red Pie '
+          description: >-
+            No cheese option with tomato sauce, garlic, red flakes, oregano,
+            olive oil.
           price: $24.00
         - name: Vodka Pie
           description: Coming soon.
@@ -73,6 +75,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
