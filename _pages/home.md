@@ -67,7 +67,7 @@ menu_section:
       item:
         - name: Calabrian Chilis
           description: >-
-            Chili pepper grown in Southern Italy with a medium hot level of
+            chili pepper grown in Southern Italy with a medium hot level of
             heat, layered with a sweet, subtly smoky and fruity flavor
           price: '3.00'
         - name: Ranch
@@ -84,6 +84,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
