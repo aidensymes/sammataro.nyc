@@ -81,9 +81,9 @@ menu_section:
         - name: Bawi (Lime)
           description: ''
           price: '3.50'
-    - name: Desserts
 _template: home
 ---
+
 
 
 
