@@ -58,7 +58,7 @@ menu_section:
         - name: 'Red Pie '
           description: >-
             no cheese option with tomato sauce, garlic, red flakes, oregano,
-            olive oil.
+            olive oil
           price: $24.00
         - name: Vodka Pie
           description: coming back soon...
@@ -84,6 +84,7 @@ menu_section:
           price: $4.00
 _template: home
 ---
+
 
 
 
