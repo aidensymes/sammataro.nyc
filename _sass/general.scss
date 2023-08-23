@@ -378,13 +378,13 @@ img {
   background-color: $black;
   color: $white;
   border-radius: $unit-xxs;
-  padding: $unit-sm;
-  font-size: $unit-xs;
+  padding: $unit-xs;
   display: flex;
   align-items: center;
   gap: $unit-sm;
   p {
     @include p;
+    letter-spacing: toRem(-0.5);
   }
   a {
     font: inherit;
