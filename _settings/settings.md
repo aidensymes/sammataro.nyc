@@ -6,6 +6,7 @@ global:
     A unique and vibrant New York style pizza joint that quickly became a
     favorite for anyone who's ever tried (and, as a result, now misses dearly)
     New York pizza.
+  thumbnail: /assets/uploads/sammataro_thumbnail.png
   logo: /assets/uploads/sammataro_logo.svg
   logo_light: /assets/uploads/sammataro_logo_light.svg
   icon: /assets/uploads/sammataro_icon.svg
@@ -48,6 +49,7 @@ nav:
         - label: (512) 690-1547
           url: 'tel:512-690-1547'
 ---
+
 
 
 
