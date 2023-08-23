@@ -1,7 +1,7 @@
 ---
 global:
   title: Sammataro
-  tagline: 'A NY pizza join in Austin, Tx'
+  tagline: 'A NY pizza joint in Austin, TX'
   description: >-
     A unique and vibrant New York style pizza joint that quickly became a
     favorite for anyone who's ever tried (and, as a result, now misses dearly)
@@ -48,6 +48,7 @@ nav:
         - label: (512) 690-1547
           url: 'tel:512-690-1547'
 ---
+
 
 
 
