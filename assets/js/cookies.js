@@ -55,7 +55,7 @@ var cookieprompt;
 
 function handleCookieAccept() {
   giveCookieConsent();
-  hideCookiePrompt();
+  hideCookieBar();
   if (toggle) {
     toggle.classList.add("on");
   }
@@ -71,7 +71,7 @@ function toggleCookieConsent(toggle) {
     toggle.classList.add("on");
   }
   if (cookieprompt) {
-    hideCookiePrompt();
+    hideCookieBar();
   }
 }
 
