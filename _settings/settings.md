@@ -11,14 +11,14 @@ global:
   logo_light: /assets/uploads/sammataro_logo_light.svg
   icon: /assets/uploads/sammataro_icon.svg
   icon_light: /assets/uploads/sammataro_icon_light.svg
-  address: '1108 E 12th St.<br>Austin, TX 78702'
+  address: '2907 E 12th St.<br>Austin, TX 78702'
   address_url: >-
     https://www.google.com/maps/place/Sammataro/@30.2727377,-97.7283101,15z/data=!4m6!3m5!1s0x865b4bfab426e8f5:0x7f21cb8e77491345!8m2!3d30.2727377!4d-97.7283101!16s%2Fg%2F11n00zvlwd?entry=ttu
   hours:
     - day: Tue-Fri
       hours: '5:00-10:00'
     - day: Sat
-      hours: '4:00-10:00'
+      hours: '1:00-10:00'
     - day: Sun
       hours: '4:00-9:00'
     - day: Mon
@@ -49,17 +49,4 @@ nav:
         - label: (512) 690-1547
           url: 'tel:512-690-1547'
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
 
