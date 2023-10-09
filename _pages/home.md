@@ -14,7 +14,7 @@ title: Home
 layout: home
 permalink: /
 header:
-  hours: 'Tue-Fri: 5-10,<br>Sat: 4-10, Sun: 4-9'
+  hours: 'Tue-Fri: 5-10,<br>Sat: 1-10, Sun: 1-9'
   address: '2907 E 12th St.<br>Austin, TX'
   left_image: /assets/uploads/IMG_4282.png
   right_image: /assets/uploads/IMG-4162.JPEG
