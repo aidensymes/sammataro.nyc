@@ -1,7 +1,23 @@
 ---
+menus:
+  title: Menu
+  pickup: true
+  delivery: true
+  limit: 3
+  menus:
+    - name: Pizza
+      item:
+        - name: Generic Pizza
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+          price: $26.00
 title: Home
 layout: home
 permalink: /
+header:
+  hours: 'Tue-Fri: 5-10,<br>Sat: 4-10, Sun: 4-9'
+  address: '2907 E 12th St.<br>Austin, TX'
+  left_image: /assets/uploads/IMG_4282.png
+  right_image: /assets/uploads/IMG-4162.JPEG
 about:
   title: About
   blurb: >
@@ -14,32 +30,6 @@ about:
     - /assets/uploads/unnamed (3).jpg
     - /assets/uploads/unnamed (7).jpg
     - /assets/uploads/IMG-4763.JPEG
-header:
-  hours: 'Tue-Fri: 5-10,<br>Sat: 4-10, Sun: 4-9'
-  address: '1108 E 12th St.<br>Austin, TX'
-  left_image: /assets/uploads/IMG_4282.png
-  right_image: /assets/uploads/IMG-4162.JPEG
-menus:
-  title: Menu
-  pickup: true
-  delivery: true
-  limit: 3
-  menus:
-    - name: Pizza
-      item:
-        - name: Generic Pizza
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-          price: $26.00
-order:
-  title: Order
-  blurb: |
-    Place an order online for pickup or delivery.
-  pickup: true
-  delivery: true
-  callout: Get Sammataro<br>anywhere
-  images:
-    - /assets/uploads/unnamed (10).jpg
-    - /assets/uploads/unnamed (8).jpg
 menu_section:
   title: Menu
   limit: 3
@@ -80,62 +70,16 @@ menu_section:
         - name: Bawi (Lime)
           description: ''
           price: '3.50'
+order:
+  title: Order
+  blurb: |
+    Place an order online for pickup or delivery.
+  pickup: true
+  delivery: true
+  callout: Get Sammataro<br>anywhere
+  images:
+    - /assets/uploads/unnamed (10).jpg
+    - /assets/uploads/unnamed (8).jpg
 _template: home
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
