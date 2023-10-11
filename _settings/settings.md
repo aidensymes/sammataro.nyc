@@ -24,7 +24,7 @@ global:
     - day: Mon
       hours: Closed
   show_pickup: true
-  pickup: 'https://order.dripos.com/sammataro.eastside'
+  pickup: 'https://order.toasttab.com/online/sammataro'
   show_delivery: true
   delivery: >-
     https://www.ubereats.com/store/sammataro-east/kvr4sq1vUSa0XPWj-J3rhg?diningMode=DELIVERY
