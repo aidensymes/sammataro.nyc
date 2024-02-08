@@ -46,11 +46,11 @@ nav:
           url: 'https://www.yelp.com/biz/sammataro-austin'
     - title: Contact
       links:
-        - label: Book out the house
-          url: 'mailto:info@sammataro.nyc?subject=Booking'
-        - label: Wedding or event catering
-          url: 'mailto:info@sammataro.nyc?subject=Catering'
         - label: (512) 690-1547
           url: 'tel:512-690-1547'
+        - label: Wedding or event catering
+          url: 'mailto:info@sammataro.nyc?subject=Catering'
+        - label: Book out the house
+          url: 'mailto:info@sammataro.nyc?subject=Booking'
 ---
 
