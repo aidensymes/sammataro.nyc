@@ -18,7 +18,7 @@ global:
     - day: Mon-Fri
       hours: '4:00-10:00'
     - day: Sat
-      hours: '1:00-10:00'
+      hours: '12:00-10:00'
     - day: Sun
       hours: '1:00-8:00'
   show_pickup: true
