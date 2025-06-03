@@ -50,7 +50,7 @@ menu_section:
             olive oil
           price: $24.00
         - name: Vodka Pie
-          description: coming back soon...
+          description: Spicy creamy tomato sauce
           price: $28.00
     - name: Sides
       item:
