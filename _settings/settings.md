@@ -49,7 +49,7 @@ nav:
         - label: (737)497-1015
           url: 'tel:737-497-1015'
         - label: Wedding or event catering
-          url: 'mailto:info@sammataro.nyc?subject=Catering'
+          url: 'mailto:Issac@sammataro.nyc?subject=Catering'
         - label: Book out the house
           url: 'mailto:info@sammataro.nyc?subject=Booking'
 ---
