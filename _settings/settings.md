@@ -46,8 +46,8 @@ nav:
           url: 'https://www.yelp.com/biz/sammataro-austin'
     - title: Contact
       links:
-        - label: (512) 690-1547
-          url: 'tel:512-690-1547'
+        - label: (737)497-1015
+          url: 'tel:737497-1015'
         - label: Wedding or event catering
           url: 'mailto:info@sammataro.nyc?subject=Catering'
         - label: Book out the house
