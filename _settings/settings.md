@@ -11,7 +11,7 @@ global:
   logo_light: /assets/uploads/sammataro_logo_light.svg
   icon: /assets/uploads/sammataro_icon.svg
   icon_light: /assets/uploads/sammataro_icon_light.svg
-  address: '2907 E 12th St.<br>Austin, TX 78702'
+  address: '2903 E 12th St.<br>Austin, TX 78702'
   address_url: >-
     https://www.google.com/maps/dir/30.3132799,-97.7133667/Sammataro,+2907+E+12th+St,+Austin,+TX+78702/@30.2948627,-97.7292992,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x865b4bfab426e8f5:0x7f21cb8e77491345!2m2!1d-97.7070282!2d30.2756426?entry=ttu
   hours:
@@ -21,8 +21,6 @@ global:
       hours: '1:00-10:00'
     - day: Sun
       hours: '1:00-8:00'
-    - day: Mon
-      hours: Closed
   show_pickup: true
   pickup: 'https://order.toasttab.com/online/sammataro'
   show_delivery: true
