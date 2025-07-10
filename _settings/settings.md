@@ -29,9 +29,7 @@ global:
     Get 25% off your first mobile app order of $20 or more, use code WELCOME!
     Click to download.
   announcement_url: 'https://order.sammataro.nyc/'
-  popup_script: >-
-    <script src="https://scripts.getopen.com/leadgen.js"
-    data-merchant-id="9e6ef3d7-9f0c-4267-be3a-5739645cb4d0" defer></script>
+  popup_script: ''
 nav:
   show_email: false
   email_label: 'Get Updates:'
