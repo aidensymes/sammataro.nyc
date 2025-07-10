@@ -22,12 +22,18 @@ global:
     - day: Sun
       hours: '1:00-8:00'
   show_pickup: true
-  pickup: 'https://order.toasttab.com/online/sammataro'
+  pickup: 'https://order.sammataro.nyc/'
   show_delivery: true
-  delivery: >-
-    https://www.ubereats.com/store/sammataro-east/kvr4sq1vUSa0XPWj-J3rhg?diningMode=DELIVERY
+  delivery: 'https://order.sammataro.nyc/'
+  announcement_text: >-
+    Get 25% off your first mobile app order of $20 or more, use code WELCOME!
+    Click to download.
+  announcement_url: 'https://order.sammataro.nyc/'
+  popup_script: >-
+    <script src="https://scripts.getopen.com/leadgen.js"
+    data-merchant-id="9e6ef3d7-9f0c-4267-be3a-5739645cb4d0" defer
+    crossorigin="anonymous"></script>
 nav:
-  announcement: ''
   show_email: false
   email_label: 'Get Updates:'
   email_placeholder: Enter your email
@@ -51,4 +57,8 @@ nav:
         - label: Book out the house
           url: 'mailto:info@sammataro.nyc?subject=Booking'
 ---
+
+
+
+
 

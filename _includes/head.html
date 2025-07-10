@@ -42,6 +42,9 @@
   <script src='/assets/js/cookies.js'></script>
   {% if page.layout == "home" %}
     <script src='/assets/js/{{ page.title | downcase }}.js'></script>
+    {% if site.settings.first.global.popup_script.size > 0 %}
+      {{ site.settings.first.global.popup_script }}
+    {% endif %}
   {% endif %}
 </head>
 

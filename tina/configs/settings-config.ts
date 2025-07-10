@@ -148,6 +148,26 @@ export const settingsConfig: Collection = {
           description: "Link to order delivery (used across the site).",
           type: "string",
         },
+        {
+          name: "announcement_text",
+          label: "Announcement Text",
+          description:
+            "Enter an announcement. If this field is blank, the bar will not show on the site.",
+          type: "string",
+        },
+        {
+          name: "announcement_url",
+          label: "Announcement URL",
+          type: "string",
+          description:
+            "Enter an URL. If this field is blank, the bar will not link to anywhere.",
+        },
+        {
+          name: "popup_script",
+          label: "Popup Script",
+          description: "Paste the code for an embedded popup below.",
+          type: "string",
+        },
       ],
     },
     {
@@ -197,13 +217,6 @@ export const settingsConfig: Collection = {
               description: "The url for the button.",
             },
           ],
-        },
-        {
-          name: "announcement",
-          label: "Announcement Bar",
-          description:
-            "Enter an announcement. If this field is blank, the bar will not show on the site.",
-          type: "string",
         },
         {
           name: "show_email",
