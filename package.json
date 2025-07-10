@@ -11,11 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tinacms/cli": "^1.6.2",
+    "@tinacms/cli": "^1.10.0",
     "libvips": "^0.0.2",
-    "tinacms": "^1.5.18"
+    "tinacms": "^2.8.0"
   },
   "devDependencies": {
-    "@types/node": "^20.5.0"
+    "@types/node": "^24.0.12"
   }
 }
