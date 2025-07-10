@@ -31,8 +31,7 @@ global:
   announcement_url: 'https://order.sammataro.nyc/'
   popup_script: >-
     <script src="https://scripts.getopen.com/leadgen.js"
-    data-merchant-id="9e6ef3d7-9f0c-4267-be3a-5739645cb4d0" defer
-    crossorigin="anonymous"></script>
+    data-merchant-id="9e6ef3d7-9f0c-4267-be3a-5739645cb4d0" defer></script>
 nav:
   show_email: false
   email_label: 'Get Updates:'
@@ -57,8 +56,4 @@ nav:
         - label: Book out the house
           url: 'mailto:info@sammataro.nyc?subject=Booking'
 ---
-
-
-
-
 
