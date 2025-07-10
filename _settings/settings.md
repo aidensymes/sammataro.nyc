@@ -28,7 +28,7 @@ global:
   announcement_text: >-
     Get 25% off your first mobile app order of $20 or more, use code WELCOME!
     Click to download.
-  announcement_url: 'https://order.sammataro.nyc/'
+  announcement_url: 'https://dub.sh/sammataro-web'
   popup_script: ''
 nav:
   show_email: false
