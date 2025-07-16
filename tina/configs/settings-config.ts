@@ -102,17 +102,6 @@ export const settingsConfig: Collection = {
               label: "Day(s)",
               type: "string",
               description: "Day of the week for the listed hours.",
-              options: [
-                "Mon",
-                "Tue",
-                "Wed",
-                "Thurs",
-                "Fri",
-                "Sat",
-                "Sun",
-                "Tue-Fri",
-                "Mon-Fri",
-              ],
             },
             {
               name: "hours",
