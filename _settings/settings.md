@@ -28,8 +28,8 @@ global:
   show_delivery: true
   delivery: 'https://order.sammataro.nyc/'
   announcement_text: >-
-    Get 25% off your first mobile app order of $20 or more, use code WELCOME!
-    Click to download.
+    Get 25% off your first mobile app order, use code: WELCOME! Click to
+    download.
   announcement_url: 'https://dub.sh/sammataro-web'
   popup_script: ''
 nav:
