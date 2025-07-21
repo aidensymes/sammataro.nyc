@@ -31,7 +31,9 @@ global:
     Get 25% off your first mobile app order, use code: WELCOME! Click to
     download.
   announcement_url: 'https://dub.sh/sammataro-web'
-  popup_script: ''
+  popup_script: >-
+    <script   src="https://scripts.getopen.com/leadgen.js"  
+    data-merchant-id="9e6ef3d7-9f0c-4267-be3a-5739645cb4d0"   defer ></script>
 nav:
   show_email: false
   email_label: 'Get Updates:'
