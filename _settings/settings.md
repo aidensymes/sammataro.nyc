@@ -24,9 +24,9 @@ global:
     - day: Sun
       hours: '12:00-9:00'
   show_pickup: true
-  pickup: 'https://order.sammataro.nyc/'
+  pickup: 'https://order.sammataro.nyc/austin'
   show_delivery: true
-  delivery: 'https://order.sammataro.nyc/'
+  delivery: 'https://order.sammataro.nyc/austin'
   announcement_text: >-
     Get 25% off your first mobile app order, use code: WELCOME! Click to
     download.
