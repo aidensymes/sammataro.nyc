@@ -29,7 +29,7 @@ global:
   delivery: 'https://order.sammataro.nyc/austin'
   announcement_text: >-
     Download our new mobile app for access to exclusive rewards and our cash
-    back loyalty program!
+    back loyalty program! 
   announcement_url: 'https://dub.sh/sammataro-web'
   popup_script: >-
     <script   src="https://scripts.getopen.com/leadgen.js"  
