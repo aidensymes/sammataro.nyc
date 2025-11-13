@@ -28,8 +28,8 @@ global:
   show_delivery: true
   delivery: 'https://order.sammataro.nyc/austin'
   announcement_text: >-
-    Get 25% off your first mobile app order, use code: WELCOME! Click to
-    download.
+    Download our new mobile app for access to exclusive rewards and our cash
+    back loyalty program!
   announcement_url: 'https://dub.sh/sammataro-web'
   popup_script: >-
     <script   src="https://scripts.getopen.com/leadgen.js"  
