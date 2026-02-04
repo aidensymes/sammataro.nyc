@@ -2,18 +2,14 @@
 global:
   title: Sammataro
   tagline: 'A NY pizza joint in Austin, TX'
-  description: >-
-    A unique and vibrant New York style pizza joint that quickly became a
-    favorite for anyone who's ever tried (and, as a result, now misses dearly)
-    New York pizza.
+  description: 'A unique and vibrant New York style pizza joint that quickly became a favorite for anyone who''s ever tried (and, as a result, now misses dearly) New York pizza.'
   thumbnail: /assets/uploads/sammataro_thumbnail.png
   logo: /assets/uploads/sammataro_logo.svg
   logo_light: /assets/uploads/sammataro_logo_light.svg
   icon: /assets/uploads/sammataro_icon.svg
   icon_light: /assets/uploads/sammataro_icon_light.svg
   address: '2903 E 12th St.<br>Austin, TX 78702'
-  address_url: >-
-    https://www.google.com/maps/dir/30.3132799,-97.7133667/Sammataro,+2907+E+12th+St,+Austin,+TX+78702/@30.2948627,-97.7292992,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x865b4bfab426e8f5:0x7f21cb8e77491345!2m2!1d-97.7070282!2d30.2756426?entry=ttu
+  address_url: 'https://www.google.com/maps/dir/30.3132799,-97.7133667/Sammataro,+2907+E+12th+St,+Austin,+TX+78702/@30.2948627,-97.7292992,14z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x865b4bfab426e8f5:0x7f21cb8e77491345!2m2!1d-97.7070282!2d30.2756426?entry=ttu'
   hours:
     - day: Mon-Thu
       hours: '4:00-9:00'
@@ -24,16 +20,12 @@ global:
     - day: Sun
       hours: '12:00-9:00'
   show_pickup: true
-  pickup: 'https://order.sammataro.nyc/austin'
+  pickup: 'https://order.sammataro.nyc'
   show_delivery: true
-  delivery: 'https://order.sammataro.nyc/austin'
-  announcement_text: >-
-    Download our new mobile app for access to exclusive rewards and our cash
-    back loyalty program! 
+  delivery: 'https://order.sammataro.nyc'
+  announcement_text: 'Download our new mobile app for access to exclusive rewards and our cash back loyalty program! '
   announcement_url: 'https://dub.sh/sammataro-web'
-  popup_script: >-
-    <script   src="https://scripts.getopen.com/leadgen.js"  
-    data-merchant-id="9e6ef3d7-9f0c-4267-be3a-5739645cb4d0"   defer ></script>
+  popup_script: '<script   src="https://scripts.getopen.com/leadgen.js"   data-merchant-id="9e6ef3d7-9f0c-4267-be3a-5739645cb4d0"   defer ></script>'
 nav:
   show_email: false
   email_label: 'Get Updates:'
